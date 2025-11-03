@@ -34,6 +34,63 @@
             min-height: 50px;
         }
         
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-home {
+            display: none;
+            align-items: center;
+        }
+        
+        .nav-home a {
+            color: #555;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .nav-home a:hover {
+            color: #5496b3;
+        }
+        
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 101;
+        }
+        
+        .hamburger span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: #555;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+        
         nav ul {
             list-style: none;
             display: flex;
@@ -338,45 +395,67 @@
         }
         
         @media (max-width: 768px) {
-            .timeline-items {
-                flex-direction: column;
-                padding-top: 0;
-            }
-            
-            .timeline-items::before {
-                display: none;
-            }
-            
-            .timeline-items::after {
-                display: none;
-            }
-            
-            .timeline-item {
-                flex: 1 1 auto;
-                padding-left: 30px;
-                padding-top: 20px;
-                border-left: 2px solid #ecf0f1;
-            }
-            
-            .timeline-item::before {
-                left: -6px;
-                top: 20px;
-            }
-            
-            .timeline-item:last-child {
-                border-left: none;
-            }
-            
             body {
                 padding: 30px 20px;
             }
             
+            .nav-home {
+                display: flex;
+            }
+            
+            .hamburger {
+                display: flex;
+            }
+            
             nav ul {
-                gap: 15px;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: #ffffff;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0;
+                padding: 20px;
+                border-bottom: 1px solid #ecf0f1;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease, padding 0.3s ease;
+            }
+            
+            nav ul:not(.active) {
+                display: none;
+            }
+            
+            nav ul.active {
+                display: flex;
+                max-height: 500px;
+            }
+            
+            nav li {
+                width: 100%;
+                padding: 12px 0;
+                border-bottom: 1px solid #ecf0f1;
+            }
+            
+            nav li:first-child {
+                display: none;
+            }
+            
+            nav li:last-child {
+                border-bottom: none;
             }
             
             nav a {
+                display: block;
+                width: 100%;
                 font-size: 13px;
+            }
+            
+            .download-btn {
+                width: 100%;
+                text-align: center;
             }
             
             header {
@@ -412,6 +491,35 @@
             
             .chart-container canvas {
                 max-height: 300px;
+            }
+            
+            .timeline-items {
+                flex-direction: column;
+                padding-top: 0;
+            }
+            
+            .timeline-items::before {
+                display: none;
+            }
+            
+            .timeline-items::after {
+                display: none;
+            }
+            
+            .timeline-item {
+                flex: 1 1 auto;
+                padding-left: 30px;
+                padding-top: 20px;
+                border-left: 2px solid #ecf0f1;
+            }
+            
+            .timeline-item::before {
+                left: -6px;
+                top: 20px;
+            }
+            
+            .timeline-item:last-child {
+                border-left: none;
             }
         }
         
@@ -462,15 +570,25 @@
 </head>
 <body>
     <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/cv.html">CV</a></li>
-            <li><a href="/photonik-metrics.html" class="active">Photonik & CER</a></li>
-            <li><a href="/uber-carshare.html">Uber Carshare</a></li>
-            <li><a href="/newkirk-solar.html">Newkirk Solar</a></li>
-            <li><a href="/community.html">Community</a></li>
-            <li><a href="#" class="download-btn">Download PDF CV</a></li>
-        </ul>
+        <div class="nav-container">
+            <div class="nav-home">
+                <a href="/">Home</a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/cv.html">CV</a></li>
+                <li><a href="/photonik-metrics.html" class="active">Photonik & CER</a></li>
+                <li><a href="/uber-carshare.html">Uber Carshare</a></li>
+                <li><a href="/newkirk-solar.html">Newkirk Solar</a></li>
+                <li><a href="/community.html">Community</a></li>
+                <li><a href="#" class="download-btn">Download PDF CV</a></li>
+            </ul>
+        </div>
     </nav>
     
     <header>
@@ -812,6 +930,35 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Hamburger menu toggle
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('nav-menu');
+            
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', function() {
+                    hamburger.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                });
+                
+                // Close menu when clicking on a link
+                const navLinks = navMenu.querySelectorAll('a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('active');
+                    });
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    const isClickInsideNav = navMenu.contains(event.target) || hamburger.contains(event.target);
+                    if (!isClickInsideNav && navMenu.classList.contains('active')) {
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('active');
+                    }
+                });
+            }
+            
             const downloadBtn = document.querySelector('.download-btn');
             if (downloadBtn) {
                 downloadBtn.addEventListener('click', function(e) {
