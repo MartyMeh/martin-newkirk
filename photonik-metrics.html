@@ -52,18 +52,18 @@
         }
         
         nav a:hover {
-            color: #5c8eb3;
+            color: #5496b3;
         }
         
         nav a.active {
-            color: #5c8eb3;
+            color: #5496b3;
             font-weight: 600;
         }
         
         .download-btn {
             display: inline-block;
             padding: 10px 20px;
-            background-color: #5c8eb3;
+            background-color: #5496b3;
             color: #ffffff;
             text-decoration: none;
             border-radius: 4px;
@@ -73,7 +73,7 @@
         }
         
         .download-btn:hover {
-            background-color: #456a86;
+            background-color: #447a91;
             color: #ffffff;
         }
         
@@ -102,7 +102,7 @@
             color: #1a1a1a;
             margin-bottom: 25px;
             padding-bottom: 12px;
-            border-bottom: 2px solid #5c8eb3;
+            border-bottom: 2px solid #5496b3;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
@@ -119,7 +119,7 @@
             padding: 20px;
             border-radius: 4px;
             margin-bottom: 30px;
-            border-left: 4px solid #5c8eb3;
+            border-left: 4px solid #5496b3;
             display: flex;
             flex-direction: column;
             height: 100%;
@@ -358,9 +358,11 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <script>
         // Chart.js configuration with blue theme
-        const blueColor = '#5c8eb3';
+        const blueColor = '#5496b3';
         const blueLight = '#7ba8c8';
-        const blueDark = '#456a86';
+        const blueDark = '#447a91';
+        const secondaryColor = '#cb8e41';
+        const secondaryDark = '#b88035';
         const gridColor = '#ecf0f1';
         const textColor = '#555';
 
@@ -412,14 +414,14 @@
         // Generate color palette for pie chart
         const pieColors = [
             blueColor,
+            secondaryColor,
             blueLight,
             blueDark,
+            secondaryDark,
             '#9bc4d4',
-            '#b8d8e8',
+            '#d4a574',
             '#d4e8f2',
-            '#e8f2f8',
-            '#a8c5d6',
-            '#8bb3c7',
+            '#e8c9a1',
             '#6da1b8'
         ];
         
@@ -483,14 +485,14 @@
         // Generate color palette for pie chart
         const cerPieColors = [
             blueColor,
+            secondaryColor,
             blueLight,
             blueDark,
+            secondaryDark,
             '#9bc4d4',
-            '#b8d8e8',
+            '#d4a574',
             '#d4e8f2',
-            '#e8f2f8',
-            '#a8c5d6',
-            '#8bb3c7',
+            '#e8c9a1',
             '#6da1b8'
         ];
         

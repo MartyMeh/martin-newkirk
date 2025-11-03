@@ -52,18 +52,18 @@
         }
         
         nav a:hover {
-            color: #5c8eb3;
+            color: #5496b3;
         }
         
         nav a.active {
-            color: #5c8eb3;
+            color: #5496b3;
             font-weight: 600;
         }
         
         .download-btn {
             display: inline-block;
             padding: 10px 20px;
-            background-color: #5c8eb3;
+            background-color: #5496b3;
             color: #ffffff;
             text-decoration: none;
             border-radius: 4px;
@@ -73,7 +73,16 @@
         }
         
         .download-btn:hover {
-            background-color: #456a86;
+            background-color: #447a91;
+            color: #ffffff;
+        }
+        
+        .download-btn-secondary {
+            background-color: #cb8e41;
+        }
+        
+        .download-btn-secondary:hover {
+            background-color: #b88035;
             color: #ffffff;
         }
         
@@ -143,7 +152,7 @@
         header {
             margin-bottom: 35px;
             padding-bottom: 25px;
-            border-bottom: 2px solid #5c8eb3;
+            border-bottom: 2px solid #5496b3;
         }
         
         h1 {
@@ -168,14 +177,22 @@
         }
         
         .contact a {
-            color: #5c8eb3;
+            color: #5496b3;
             text-decoration: none;
             transition: color 0.2s;
         }
         
         .contact a:hover {
-            color: #456a86;
+            color: #447a91;
             text-decoration: underline;
+        }
+        
+        .contact a[target="_blank"] {
+            color: #cb8e41;
+        }
+        
+        .contact a[target="_blank"]:hover {
+            color: #b88035;
         }
         
         .section {
@@ -238,7 +255,7 @@
         .role {
             font-size: 15px;
             font-weight: 600;
-            color: #5c8eb3;
+            color: #5496b3;
             margin-top: 2px;
         }
         
@@ -262,7 +279,7 @@
         }
         
         .job li::marker {
-            color: #5c8eb3;
+            color: #5496b3;
         }
         
         .continuation {
@@ -376,7 +393,7 @@
         
         @media print {
             body {
-                padding: 30px;
+                padding: 15px;
             }
             
             nav {
@@ -387,8 +404,13 @@
                 display: none;
             }
             
+            .summary-photo img {
+                width: 150px;
+                height: 150px;
+            }
+            
             .contact a {
-                color: #5c8eb3;
+                color: #5496b3;
                 text-decoration: none;
             }
         }
@@ -415,7 +437,8 @@
             <a href="mailto:martinnewkirk@gmail.com">martinnewkirk@gmail.com</a> | 
             <a href="https://linkedin.com/in/martin-newkirk-29061120" target="_blank">linkedin.com/in/martin-newkirk-29061120</a><br>
             <a href="https://cleanenergyreviews.info" target="_blank">cleanenergyreviews.info</a> | 
-            <a href="https://photonik.solar" target="_blank">photonik.solar</a>
+            <a href="https://photonik.solar" target="_blank">photonik.solar</a> | 
+            <a href="https://martinnewkirk.online/" target="_blank">martinnewkirk.online</a>
         </div>
     </header>
 
@@ -427,7 +450,7 @@
                     Founder and product leader with 10+ years building products in clean energy and transport. Currently building Photonik as a side project—professional solar design software used by 2,000+ installers globally from over 100 countries. Previously scaled Car Next Door from startup to Uber acquisition, leading product, strategy, and operations. Deep expertise in 0→1 venture building, product-market fit validation, and driving ROI through rapid experimentation.
                 </div>
                 <div style="margin-top: 20px;">
-                    <a href="#" class="download-btn" id="view-intro-video">View Intro Video</a>
+                    <a href="#" class="download-btn download-btn-secondary" id="view-intro-video">View Intro Video</a>
                 </div>
             </div>
             <div class="summary-photo">
@@ -629,14 +652,21 @@
                     // Hide elements that shouldn't appear in PDF
                     const nav = document.querySelector('nav');
                     const allDownloadButtons = document.querySelectorAll('.download-btn');
+                    const profilePhoto = document.querySelector('.summary-photo img');
                     
-                    // Store original display styles
+                    // Store original display/styles
                     const originalNavDisplay = nav.style.display;
                     const originalButtonDisplays = Array.from(allDownloadButtons).map(btn => btn.style.display);
+                    const originalPhotoWidth = profilePhoto ? profilePhoto.style.width : '';
+                    const originalPhotoHeight = profilePhoto ? profilePhoto.style.height : '';
                     
-                    // Hide elements
+                    // Hide elements and resize photo
                     nav.style.display = 'none';
                     allDownloadButtons.forEach(btn => btn.style.display = 'none');
+                    if (profilePhoto) {
+                        profilePhoto.style.width = '150px';
+                        profilePhoto.style.height = '150px';
+                    }
                     
                     // Get the element to convert (the body content)
                     const element = document.body;
@@ -657,6 +687,10 @@
                         allDownloadButtons.forEach((btn, index) => {
                             btn.style.display = originalButtonDisplays[index];
                         });
+                        if (profilePhoto) {
+                            profilePhoto.style.width = originalPhotoWidth;
+                            profilePhoto.style.height = originalPhotoHeight;
+                        }
                     });
                 });
             });
