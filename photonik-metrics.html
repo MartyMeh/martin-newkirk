@@ -24,8 +24,12 @@
         }
         
         nav {
+            position: sticky;
+            top: 0;
+            background-color: #ffffff;
+            z-index: 100;
             margin-bottom: 40px;
-            padding-bottom: 20px;
+            padding: 20px 0;
             border-bottom: 1px solid #ecf0f1;
             min-height: 50px;
         }
@@ -283,7 +287,7 @@
     <section class="section">
         <h2>Photonik</h2>
         <div class="overview">
-            <p>Professional solar design software built as a solo technical founder using AI-assisted development (Claude, Cursor). Photonik empowers installers and designers to create accurate, professional solar system designs quickly and efficiently.</p>
+            <p>Professional solar design software built using AI-assisted development (Claude, Cursor). Photonik empowers installers and designers to create accurate, professional solar system designs quickly and efficiently.</p>
             <p style="margin-top: 15px; font-size: 14px; color: #555;"><strong>Note:</strong> "Jobs" are created by consumers (home or business owners looking to get solar installed on their properties). "Proposals" are created by professionals (installers and designers) responding to those jobs.</p>
         </div>
         
@@ -315,10 +319,6 @@
             <canvas id="photonik-countries"></canvas>
             <div class="chart-note" id="countries-note">Users from 181 countries total</div>
         </div>
-        
-        <div class="narrative">
-            Built solo using AI-assisted development tools. Shipping features rapidly based on direct user feedback and validation. Every feature is prioritized based on real-world impact and user needs.
-        </div>
     </section>
 
     <section class="section">
@@ -328,20 +328,25 @@
             <p style="margin-top: 15px; font-size: 14px; color: #555;"><strong>All-time stats (2014 - 2025)</strong></p>
         </div>
         
-        <div class="metrics-grid" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="metrics-grid" style="grid-template-columns: repeat(4, 1fr);">
             <div class="metric-card">
                 <div class="metric-label">Visits</div>
-                <div class="metric-value" id="cer-visits">10,200,000</div>
+                <div class="metric-value" id="cer-visits">10.2M</div>
             </div>
             
             <div class="metric-card">
                 <div class="metric-label">Unique Visitors</div>
-                <div class="metric-value" id="cer-unique-visitors">8,300,000</div>
+                <div class="metric-value" id="cer-unique-visitors">8.3M</div>
             </div>
             
             <div class="metric-card">
                 <div class="metric-label">Pageviews</div>
-                <div class="metric-value" id="cer-pageviews">14,100,000</div>
+                <div class="metric-value" id="cer-pageviews">14.1M</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-label">Revenue</div>
+                <div class="metric-value" id="cer-revenue">A$194k</div>
             </div>
         </div>
         
@@ -382,9 +387,10 @@
         const photonikTotalCountries = 181; // Total countries
         
         // Clean Energy Reviews Metrics - All Time Stats (2014 - 2025)
-        const cerVisits = 10200000;
-        const cerUniqueVisitors = 8300000;
-        const cerPageviews = 14100000;
+        const cerVisits = '10.2M';
+        const cerUniqueVisitors = '8.3M';
+        const cerPageviews = '14.1M';
+        const cerRevenue = 'A$194k';
         
         // CER Top 10 Countries by Visits (percentages)
         const cerCountriesLabels = ['United States', 'Australia', 'United Kingdom', 'India', 'Canada', 'Romania', 'Philippines', 'South Africa', 'Pakistan', 'Germany'];
@@ -401,9 +407,10 @@
         document.getElementById('photonik-avg-proposals').textContent = photonikAvgProposals;
         
         // Update CER metric card values
-        document.getElementById('cer-visits').textContent = cerVisits.toLocaleString();
-        document.getElementById('cer-unique-visitors').textContent = cerUniqueVisitors.toLocaleString();
-        document.getElementById('cer-pageviews').textContent = cerPageviews.toLocaleString();
+        document.getElementById('cer-visits').textContent = cerVisits;
+        document.getElementById('cer-unique-visitors').textContent = cerUniqueVisitors;
+        document.getElementById('cer-pageviews').textContent = cerPageviews;
+        document.getElementById('cer-revenue').textContent = cerRevenue;
         
         // Update countries note
         document.getElementById('countries-note').textContent = `Users from ${photonikTotalCountries} countries total`;
@@ -562,6 +569,19 @@
                         }
                     }
                 }
+            }
+        });
+    </script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const downloadBtn = document.querySelector('.download-btn');
+            if (downloadBtn) {
+                downloadBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // Navigate to CV page with download parameter
+                    window.location.href = '/cv.html?download=true';
+                });
             }
         });
     </script>

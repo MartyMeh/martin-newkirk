@@ -24,8 +24,12 @@
         }
         
         nav {
+            position: sticky;
+            top: 0;
+            background-color: #ffffff;
+            z-index: 100;
             margin-bottom: 40px;
-            padding-bottom: 20px;
+            padding: 20px 0;
             border-bottom: 1px solid #ecf0f1;
             min-height: 50px;
         }
@@ -274,5 +278,18 @@ If you're building products in clean energy or operational efficiency, and looki
         <a href="/cv.html" class="cta-link">View CV</a>
         <a href="/photonik-metrics.html" class="cta-link cta-link-secondary">View Photonik & CER</a>
     </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const downloadBtn = document.querySelector('.download-btn');
+            if (downloadBtn) {
+                downloadBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // Navigate to CV page with download parameter
+                    window.location.href = '/cv.html?download=true';
+                });
+            }
+        });
+    </script>
 </body>
 </html>

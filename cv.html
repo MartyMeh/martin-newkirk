@@ -24,8 +24,12 @@
         }
         
         nav {
+            position: sticky;
+            top: 0;
+            background-color: #ffffff;
+            z-index: 100;
             margin-bottom: 40px;
-            padding-bottom: 20px;
+            padding: 20px 0;
             border-bottom: 1px solid #ecf0f1;
             min-height: 50px;
         }
@@ -84,6 +88,12 @@
         .download-btn-secondary:hover {
             background-color: #b88035;
             color: #ffffff;
+        }
+        
+        /* PDF page break classes */
+        .page-break-after {
+            page-break-after: always;
+            break-after: page;
         }
         
         /* Lightbox styles */
@@ -252,6 +262,16 @@
             color: #1a1a1a;
         }
         
+        .company a {
+            color: #1a1a1a;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .company a:hover {
+            color: #5496b3;
+        }
+        
         .role {
             font-size: 15px;
             font-weight: 600;
@@ -289,9 +309,9 @@
         }
         
         .education-item, .skill-group, .language-group {
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             font-size: 14px;
-            line-height: 1.6;
+            line-height: 1.5;
             color: #444;
         }
         
@@ -314,6 +334,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
+            margin-bottom: 25px;
         }
         
         @media (max-width: 768px) {
@@ -462,9 +483,9 @@
     <section class="section">
         <h2>Experience</h2>
         
-        <div class="job">
+        <div class="job page-break-after" id="photonik-job">
             <div class="job-header">
-                <div class="company">Photonik / Clean Energy Reviews</div>
+                <div class="company"><a href="/photonik-metrics.html" target="_blank">Photonik / Clean Energy Reviews</a></div>
                 <div class="role">Co-Founder | Product Manager</div>
                 <div class="date-location">Jan 2014 – Present | London, UK</div>
             </div>
@@ -478,7 +499,7 @@
 
         <div class="job">
             <div class="job-header">
-                <div class="company">Uber Carshare (previously Car Next Door)</div>
+                <div class="company"><a href="/uber-carshare.html" target="_blank">Uber Carshare (previously Car Next Door)</a></div>
                 <div class="role">Senior Associate, Strategy & Operations</div>
                 <div class="date-location">Sep 2021 – Sep 2024 | Hybrid - Sydney, Australia</div>
             </div>
@@ -510,9 +531,9 @@
             </div>
         </div>
 
-        <div class="job">
+        <div class="job" id="newkirk-solar-job">
             <div class="job-header">
-                <div class="company">Newkirk Solar Services</div>
+                <div class="company"><a href="/newkirk-solar.html" target="_blank">Newkirk Solar Services</a></div>
                 <div class="role">Founder</div>
                 <div class="date-location">Apr 2012 – Mar 2016 | Melbourne, Australia</div>
             </div>
@@ -547,8 +568,8 @@
         </div>
     </section>
 
-    <section class="section">
-        <h2>Education</h2>
+    <section class="section" style="margin-bottom: 30px;">
+        <h2 style="margin-bottom: 15px;">Education</h2>
         <div class="education-item">
             <span class="degree">Master of Commerce</span> — <span class="institution">RMIT (2012, 5 units completed)</span>
         </div>
@@ -566,16 +587,31 @@
         </div>
     </section>
 
+    <section class="section" style="margin-bottom: 25px;">
+        <h2 style="margin-bottom: 15px;"><a href="/community.html" style="color: inherit; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#5496b3'" onmouseout="this.style.color='inherit'">Community & Interests</a></h2>
+        <ul style="list-style: none; padding-left: 0; margin-top: 12px;">
+            <li style="margin-bottom: 5px; font-size: 14px; line-height: 1.5; color: #444;">
+                <a href="https://strongroomcc.com/" target="_blank" style="color: #cb8e41; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#b88035'" onmouseout="this.style.color='#cb8e41'">Strongroom Cricket Club</a> | 2009-Present
+            </li>
+            <li style="margin-bottom: 5px; font-size: 14px; line-height: 1.5; color: #444;">
+                Dulwich Hill PS Parent and Citizen Association | President 2024
+            </li>
+            <li style="margin-bottom: 5px; font-size: 14px; line-height: 1.5; color: #444;">
+                Rock Climbing | Running | Husband and Dad
+            </li>
+        </ul>
+    </section>
+
     <div class="two-column">
-        <section class="section">
-            <h2>Skills</h2>
+        <section class="section" style="margin-bottom: 20px;">
+            <h2 style="margin-bottom: 15px;">Skills</h2>
             <div class="skill-group">
                 <span class="skill-category">Core:</span> Business Operations, Product Operations, People Management, Strategic Planning, Financial Modeling
             </div>
         </section>
 
-        <section class="section">
-            <h2>Languages</h2>
+        <section class="section" style="margin-bottom: 20px;">
+            <h2 style="margin-bottom: 15px;">Languages</h2>
             <div class="language-group">
                 <span class="skill-category">English:</span> Native/Bilingual
             </div>
@@ -656,12 +692,20 @@
                     
                     // Store original display/styles
                     const originalNavDisplay = nav.style.display;
+                    const originalNavPosition = nav.style.position;
+                    const originalNavTop = nav.style.top;
+                    const originalNavZIndex = nav.style.zIndex;
+                    const originalNavBackground = nav.style.backgroundColor;
                     const originalButtonDisplays = Array.from(allDownloadButtons).map(btn => btn.style.display);
                     const originalPhotoWidth = profilePhoto ? profilePhoto.style.width : '';
                     const originalPhotoHeight = profilePhoto ? profilePhoto.style.height : '';
                     
-                    // Hide elements and resize photo
+                    // Hide elements and remove sticky positioning for PDF
                     nav.style.display = 'none';
+                    nav.style.position = 'static';
+                    nav.style.top = 'auto';
+                    nav.style.zIndex = 'auto';
+                    nav.style.backgroundColor = 'transparent';
                     allDownloadButtons.forEach(btn => btn.style.display = 'none');
                     if (profilePhoto) {
                         profilePhoto.style.width = '150px';
@@ -671,29 +715,99 @@
                     // Get the element to convert (the body content)
                     const element = document.body;
                     
-                    // PDF options
-                    const opt = {
-                        margin: [15, 15, 15, 15],
-                        filename: 'Martin-Newkirk-CV.pdf',
-                        image: { type: 'jpeg', quality: 0.98 },
-                        html2canvas: { scale: 2, useCORS: true },
-                        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-                    };
+                    // Add page break to Photonik section (end of page 1)
+                    const photonikJob = document.getElementById('photonik-job');
                     
-                    // Generate and download PDF
-                    html2pdf().set(opt).from(element).save().then(function() {
-                        // Restore elements after PDF generation
-                        nav.style.display = originalNavDisplay;
-                        allDownloadButtons.forEach((btn, index) => {
-                            btn.style.display = originalButtonDisplays[index];
-                        });
-                        if (profilePhoto) {
-                            profilePhoto.style.width = originalPhotoWidth;
-                            profilePhoto.style.height = originalPhotoHeight;
-                        }
-                    });
+                    if (photonikJob) {
+                        photonikJob.style.pageBreakAfter = 'always';
+                        photonikJob.style.breakAfter = 'page';
+                    }
+                    
+                    // Small delay to ensure styles are applied
+                    setTimeout(function() {
+                        // Scroll to top before generating PDF
+                        window.scrollTo(0, 0);
+                        
+                        // Additional small delay after scroll to ensure page is at top
+                        setTimeout(function() {
+                            // PDF options - reduced top margin by ~1cm
+                            const opt = {
+                                margin: [5, 15, 15, 15],
+                                filename: 'Martin-Newkirk-CV.pdf',
+                                image: { type: 'jpeg', quality: 0.98 },
+                                html2canvas: { 
+                                    scale: 2, 
+                                    useCORS: true,
+                                    logging: false,
+                                    windowWidth: window.innerWidth,
+                                    windowHeight: window.innerHeight,
+                                    scrollX: 0,
+                                    scrollY: 0
+                                },
+                                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                                pagebreak: { mode: ['avoid-all', 'css'] }
+                            };
+                            
+                            // Generate and download PDF
+                            html2pdf().set(opt).from(element).save().then(function() {
+                                // Restore elements after PDF generation
+                                nav.style.display = originalNavDisplay;
+                                nav.style.position = originalNavPosition;
+                                nav.style.top = originalNavTop;
+                                nav.style.zIndex = originalNavZIndex;
+                                nav.style.backgroundColor = originalNavBackground;
+                                allDownloadButtons.forEach((btn, index) => {
+                                    btn.style.display = originalButtonDisplays[index];
+                                });
+                                if (profilePhoto) {
+                                    profilePhoto.style.width = originalPhotoWidth;
+                                    profilePhoto.style.height = originalPhotoHeight;
+                                }
+                                // Remove page break styles
+                                if (photonikJob) {
+                                    photonikJob.style.pageBreakAfter = '';
+                                    photonikJob.style.breakAfter = '';
+                                }
+                            }).catch(function(error) {
+                                console.error('PDF generation error:', error);
+                                // Restore elements even on error
+                                nav.style.display = originalNavDisplay;
+                                nav.style.position = originalNavPosition;
+                                nav.style.top = originalNavTop;
+                                nav.style.zIndex = originalNavZIndex;
+                                nav.style.backgroundColor = originalNavBackground;
+                                allDownloadButtons.forEach((btn, index) => {
+                                    btn.style.display = originalButtonDisplays[index];
+                                });
+                                if (profilePhoto) {
+                                    profilePhoto.style.width = originalPhotoWidth;
+                                    profilePhoto.style.height = originalPhotoHeight;
+                                }
+                            });
+                        }, 200);
+                    }, 100);
                 });
             });
+            
+            // Check if we should auto-download PDF (from URL parameter)
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('download') === 'true') {
+                // Wait for html2pdf to load, then trigger download
+                function triggerDownload() {
+                    if (typeof html2pdf !== 'undefined') {
+                        const downloadBtn = document.querySelector('.download-btn:not(#view-intro-video)');
+                        if (downloadBtn) {
+                            downloadBtn.click();
+                            // Remove the parameter from URL without reload
+                            window.history.replaceState({}, document.title, window.location.pathname);
+                        }
+                    } else {
+                        // Wait a bit more if html2pdf isn't loaded yet
+                        setTimeout(triggerDownload, 100);
+                    }
+                }
+                setTimeout(triggerDownload, 500);
+            }
         });
     </script>
 </body>
