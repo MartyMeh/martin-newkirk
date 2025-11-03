@@ -1,0 +1,35 @@
+[[redirects]]
+  from = "/cv"
+  to = "/cv.html"
+  status = 200
+  force = false
+
+[[redirects]]
+  from = "/photonik-metrics"
+  to = "/photonik-metrics.html"
+  status = 200
+  force = false
+
+[[redirects]]
+  from = "/uber-carshare"
+  to = "/uber-carshare.html"
+  status = 200
+  force = false
+
+[[redirects]]
+  from = "/newkirk-solar"
+  to = "/newkirk-solar.html"
+  status = 200
+  force = false
+
+[[redirects]]
+  from = "/community"
+  to = "/community.html"
+  status = 200
+  force = false
+
+# Handle all other routes
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

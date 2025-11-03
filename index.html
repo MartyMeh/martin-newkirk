@@ -27,14 +27,16 @@
             margin-bottom: 40px;
             padding-bottom: 20px;
             border-bottom: 1px solid #ecf0f1;
+            min-height: 50px;
         }
         
         nav ul {
             list-style: none;
             display: flex;
-            flex-wrap: wrap;
-            gap: 25px;
+            flex-wrap: nowrap;
+            gap: 20px;
             align-items: center;
+            min-height: 50px;
         }
         
         nav li {
@@ -56,6 +58,23 @@
         nav a.active {
             color: #5c8eb3;
             font-weight: 600;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #5c8eb3;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+        
+        .download-btn:hover {
+            background-color: #456a86;
+            color: #ffffff;
         }
         
         h1 {
@@ -187,6 +206,11 @@
                 gap: 12px;
             }
             
+            .download-btn {
+                width: 100%;
+                text-align: center;
+            }
+            
             .cta-link {
                 width: 100%;
                 margin: 5px 0;
@@ -198,9 +222,12 @@
     <nav>
         <ul>
             <li><a href="/" class="active">Home</a></li>
-            <li><a href="/cv">CV</a></li>
-            <li><a href="/photonik-metrics">Metrics</a></li>
-            <li><a href="/community">Community</a></li>
+            <li><a href="/cv.html">CV</a></li>
+            <li><a href="/photonik-metrics.html">Photonik & CER</a></li>
+            <li><a href="/uber-carshare.html">Uber Carshare</a></li>
+            <li><a href="/newkirk-solar.html">Newkirk Solar</a></li>
+            <li><a href="/community.html">Community</a></li>
+            <li><a href="#" class="download-btn">Download PDF CV</a></li>
         </ul>
     </nav>
     
@@ -211,39 +238,33 @@
 
     <div class="video-section">
         <div class="video-container">
-            <div class="video-placeholder">
-                Video intro will go here<br>
-                <small style="font-size: 12px; margin-top: 10px; display: block;">Upload your video and replace this placeholder</small>
-            </div>
-            <!-- When you have your video, replace the placeholder div above with:
             <video controls>
-                <source src="videos/intro.mp4" type="video/mp4">
+                <source src="images/intro.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            -->
         </div>
     </div>
 
     <div class="script-section">
         <h2>Video Script</h2>
-        <div class="script-text">Hi, I'm Martin Newkirk.
+        <div class="script-text">Hi, I'm Marty—or Martin if you prefer.
 
-I'm a founder and product leader with over 10 years building in clean energy.
+I'm a founder and product leader with over 10 years building products in clean energy and transport. I specialise in helping organisations achieve their missions faster. By harnessing AI, we can do even more with less.
 
-I'm currently solo-building Photonik—professional solar design software now used by 2,000+ installers globally. I built it using AI-assisted development tools, shipping features rapidly based on direct user feedback.
+I'm currently building Photonik as a side project — a professional solar design software used by 2,000+ installers globally from over 100 countries.
 
-Previously, I scaled Car Next Door from startup through to Uber acquisition, leading product, strategy, and operations.
+Previously, I helped scale Car Next Door from startup through to Uber acquisition, leading product, strategy, and operations.
 
-I also created Clean Energy Reviews, an independent advice platform helping thousands of consumers make confident solar decisions.
+I also created Clean Energy Reviews (CER), an independent advice platform helping thousands of consumers make confident solar decisions. And before that, Newkirk Solar Services—the first solar services business supporting small retailers with their operations. 
 
-I specialize in 0-to-1 venture building, product-market fit validation, and driving ROI through rapid experimentation.
+I've maintained Photonik and CER for over 10 years alongside my full-time work. They've been valuable sandboxes for testing new tools and staying current with clean energy innovation.
 
-If you're building something in clean energy or looking for someone who ships products, not slides—let's talk.</div>
+If you're building products in clean energy or operational efficiency, and looking for someone who ships products, not slides—let's talk.</div>
     </div>
 
     <div class="cta-section">
-        <a href="/cv" class="cta-link">View CV</a>
-        <a href="/photonik-metrics" class="cta-link">View Metrics</a>
+        <a href="/cv.html" class="cta-link">View CV</a>
+        <a href="/photonik-metrics.html" class="cta-link">View Photonik & CER</a>
     </div>
 </body>
 </html>

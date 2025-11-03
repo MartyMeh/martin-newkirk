@@ -27,14 +27,16 @@
             margin-bottom: 40px;
             padding-bottom: 20px;
             border-bottom: 1px solid #ecf0f1;
+            min-height: 50px;
         }
         
         nav ul {
             list-style: none;
             display: flex;
-            flex-wrap: wrap;
-            gap: 25px;
+            flex-wrap: nowrap;
+            gap: 20px;
             align-items: center;
+            min-height: 50px;
         }
         
         nav li {
@@ -75,47 +77,67 @@
             color: #ffffff;
         }
         
-        .photo-section {
+        /* Lightbox styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .lightbox.active {
             display: flex;
-            gap: 30px;
-            align-items: flex-start;
-            margin-bottom: 40px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid #ecf0f1;
+            opacity: 1;
         }
         
-        .photo-wrapper {
-            flex-shrink: 0;
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90vh;
+            width: 900px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
         
-        .profile-photo {
-            width: 180px;
-            height: 180px;
-            border-radius: 4px;
-            object-fit: cover;
-            border: 2px solid #ecf0f1;
-        }
-        
-        .photo-content {
-            flex: 1;
-        }
-        
-        .photo-content h2 {
-            margin-top: 0;
+        .lightbox-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
             border: none;
-            padding: 0;
-            text-transform: none;
-            font-size: 18px;
-            margin-bottom: 12px;
-            font-weight: 700;
+            font-size: 28px;
+            color: #666;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background-color 0.2s, color 0.2s;
+            z-index: 1001;
+        }
+        
+        .lightbox-close:hover {
+            background-color: #ecf0f1;
             color: #1a1a1a;
         }
         
-        .photo-content p {
-            font-size: 14px;
-            line-height: 1.7;
-            color: #444;
-            margin-bottom: 20px;
+        .lightbox video {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            display: block;
         }
         
         header {
@@ -175,6 +197,28 @@
             font-size: 15px;
             line-height: 1.7;
             color: #444;
+        }
+        
+        .summary-with-photo {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+        
+        .summary-text {
+            flex: 1;
+        }
+        
+        .summary-photo {
+            flex-shrink: 0;
+        }
+        
+        .summary-photo img {
+            width: 225px;
+            height: 225px;
+            border-radius: 4px;
+            object-fit: cover;
+            border: 2px solid #ecf0f1;
         }
         
         .job {
@@ -276,14 +320,23 @@
                 font-size: 14px;
             }
             
-            .photo-section {
+            .summary-with-photo {
                 flex-direction: column;
                 gap: 20px;
             }
             
-            .profile-photo {
-                width: 150px;
-                height: 150px;
+            .summary-photo {
+                align-self: flex-start;
+            }
+            
+            .summary-photo img {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .lightbox-content {
+                width: 95%;
+                padding: 15px;
             }
             
             .two-column {
@@ -334,10 +387,6 @@
                 display: none;
             }
             
-            .photo-section {
-                display: none;
-            }
-            
             .contact a {
                 color: #5c8eb3;
                 text-decoration: none;
@@ -349,10 +398,12 @@
     <nav>
         <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/cv" class="active">CV</a></li>
-            <li><a href="/photonik-metrics">Metrics</a></li>
-            <li><a href="/community">Community</a></li>
-            <li><a href="#" class="download-btn">Download PDF</a></li>
+            <li><a href="/cv.html" class="active">CV</a></li>
+            <li><a href="/photonik-metrics.html">Photonik & CER</a></li>
+            <li><a href="/uber-carshare.html">Uber Carshare</a></li>
+            <li><a href="/newkirk-solar.html">Newkirk Solar</a></li>
+            <li><a href="/community.html">Community</a></li>
+            <li><a href="#" class="download-btn">Download PDF CV</a></li>
         </ul>
     </nav>
     
@@ -368,23 +419,20 @@
         </div>
     </header>
 
-    <div class="photo-section">
-        <div class="photo-wrapper">
-            <img src="images/profile.jpg" alt="Martin Newkirk" class="profile-photo">
-        </div>
-        <div class="photo-content">
-            <h2>Professional Profile</h2>
-            <p>
-                Founder and product leader with 10+ years building in clean energy. Currently solo-building Photonik using AI-assisted development tools.
-            </p>
-            <a href="#" class="download-btn">Download PDF CV</a>
-        </div>
-    </div>
-
     <section class="section">
         <h2>Summary</h2>
-        <div class="summary">
-            Founder and product leader with 10+ years building in clean energy. Currently solo-building Photonik using AI-assisted development tools. Previously scaled Car Next Door from startup to Uber acquisition, leading product, strategy, and operations. Deep expertise in 0→1 venture building, product-market fit validation, and driving ROI through rapid experimentation.
+        <div class="summary-with-photo">
+            <div class="summary-text">
+                <div class="summary">
+                    Founder and product leader with 10+ years building products in clean energy and transport. Currently building Photonik as a side project—professional solar design software used by 2,000+ installers globally from over 100 countries. Previously scaled Car Next Door from startup to Uber acquisition, leading product, strategy, and operations. Deep expertise in 0→1 venture building, product-market fit validation, and driving ROI through rapid experimentation.
+                </div>
+                <div style="margin-top: 20px;">
+                    <a href="#" class="download-btn" id="view-intro-video">View Intro Video</a>
+                </div>
+            </div>
+            <div class="summary-photo">
+                <img src="images/profile.jpg" alt="Martin Newkirk" class="profile-photo">
+            </div>
         </div>
     </section>
 
@@ -398,10 +446,10 @@
                 <div class="date-location">Jan 2014 – Present | London, UK</div>
             </div>
             <ul>
-                <li><strong>Built Photonik as solo technical founder</strong> using AI-assisted development (Claude, Cursor), shipping professional solar design software now used by 2,000+ installers and designers globally</li>
+                <li><strong>Built Photonik</strong> using AI-assisted development (Claude, Cursor, GPT-5), shipping professional solar design software used by 2,000+ installers and designers globally from over 100 countries</li>
                 <li>Lead product strategy, planning, and execution—managing technical roadmap and sprint planning</li>
                 <li>Engage directly with users for continuous feedback and validation, driving feature prioritization based on real-world impact</li>
-                <li>Created Clean Energy Reviews, an independent advice platform helping thousands of consumers make confident solar and battery decisions</li>
+                <li>Created Clean Energy Reviews (CER), an independent advice platform helping thousands of consumers make confident solar and battery decisions</li>
             </ul>
         </div>
 
@@ -517,11 +565,62 @@
         </section>
     </div>
 
+    <!-- Lightbox for intro video -->
+    <div id="video-lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightbox-close">&times;</button>
+            <video controls id="intro-video">
+                <source src="images/intro.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Get all download buttons
-            const downloadButtons = document.querySelectorAll('.download-btn');
+            // Lightbox functionality
+            const viewIntroBtn = document.getElementById('view-intro-video');
+            const lightbox = document.getElementById('video-lightbox');
+            const lightboxClose = document.getElementById('lightbox-close');
+            const introVideo = document.getElementById('intro-video');
+            
+            // Open lightbox
+            if (viewIntroBtn) {
+                viewIntroBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    lightbox.classList.add('active');
+                    introVideo.play();
+                });
+            }
+            
+            // Close lightbox
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                introVideo.pause();
+                introVideo.currentTime = 0;
+            }
+            
+            if (lightboxClose) {
+                lightboxClose.addEventListener('click', closeLightbox);
+            }
+            
+            // Close on background click
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+            
+            // Close on ESC key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                    closeLightbox();
+                }
+            });
+            
+            // Get all download buttons (excluding the video button)
+            const downloadButtons = document.querySelectorAll('.download-btn:not(#view-intro-video)');
             
             downloadButtons.forEach(function(button) {
                 button.addEventListener('click', function(e) {
@@ -529,17 +628,14 @@
                     
                     // Hide elements that shouldn't appear in PDF
                     const nav = document.querySelector('nav');
-                    const photoSection = document.querySelector('.photo-section');
                     const allDownloadButtons = document.querySelectorAll('.download-btn');
                     
                     // Store original display styles
                     const originalNavDisplay = nav.style.display;
-                    const originalPhotoDisplay = photoSection.style.display;
                     const originalButtonDisplays = Array.from(allDownloadButtons).map(btn => btn.style.display);
                     
                     // Hide elements
                     nav.style.display = 'none';
-                    photoSection.style.display = 'none';
                     allDownloadButtons.forEach(btn => btn.style.display = 'none');
                     
                     // Get the element to convert (the body content)
@@ -558,7 +654,6 @@
                     html2pdf().set(opt).from(element).save().then(function() {
                         // Restore elements after PDF generation
                         nav.style.display = originalNavDisplay;
-                        photoSection.style.display = originalPhotoDisplay;
                         allDownloadButtons.forEach((btn, index) => {
                             btn.style.display = originalButtonDisplays[index];
                         });

@@ -27,14 +27,16 @@
             margin-bottom: 40px;
             padding-bottom: 20px;
             border-bottom: 1px solid #ecf0f1;
+            min-height: 50px;
         }
         
         nav ul {
             list-style: none;
             display: flex;
-            flex-wrap: wrap;
-            gap: 25px;
+            flex-wrap: nowrap;
+            gap: 20px;
             align-items: center;
+            min-height: 50px;
         }
         
         nav li {
@@ -56,6 +58,23 @@
         nav a.active {
             color: #5c8eb3;
             font-weight: 600;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #5c8eb3;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+        
+        .download-btn:hover {
+            background-color: #456a86;
+            color: #ffffff;
         }
         
         h1 {
@@ -110,6 +129,11 @@
                 align-items: flex-start;
                 gap: 12px;
             }
+            
+            .download-btn {
+                width: 100%;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -117,9 +141,12 @@
     <nav>
         <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/cv">CV</a></li>
-            <li><a href="/photonik-metrics">Metrics</a></li>
-            <li><a href="/community" class="active">Community</a></li>
+            <li><a href="/cv.html">CV</a></li>
+            <li><a href="/photonik-metrics.html">Photonik & CER</a></li>
+            <li><a href="/uber-carshare.html">Uber Carshare</a></li>
+            <li><a href="/newkirk-solar.html">Newkirk Solar</a></li>
+            <li><a href="/community.html" class="active">Community</a></li>
+            <li><a href="#" class="download-btn">Download PDF CV</a></li>
         </ul>
     </nav>
     
