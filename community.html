@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
     <meta name="googlebot" content="noindex, nofollow">
-    <title>Community - Martin Newkirk</title>
+    <title>Community & Interests - Martin Newkirk</title>
     <style>
         * {
             margin: 0;
@@ -96,13 +96,83 @@
             font-weight: 500;
         }
         
-        .placeholder {
-            text-align: center;
-            padding: 100px 20px;
-            color: #7f8c8d;
-            font-size: 16px;
-            border: 2px dashed #ecf0f1;
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .photo-item {
+            width: 100%;
+            overflow: hidden;
             border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .photo-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .photo-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            background: #f8f9fa;
+        }
+        
+        .photo-caption {
+            padding: 12px 15px;
+            font-size: 14px;
+            color: #555;
+            background: #f8f9fa;
+            border-top: 1px solid #ecf0f1;
+        }
+        
+        /* Image 1: full width */
+        .photo-item.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        /* Portrait photos row: images 2 and 4 side by side */
+        .portrait-row {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        /* Make portrait images 2 & 4 the same dimensions */
+        .portrait-row .photo-item {
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .portrait-row .photo-item img {
+            object-fit: cover;
+            width: 100%;
+            height: calc(100% - 50px); /* Subtract caption height */
+            flex-shrink: 0;
+        }
+        
+        /* Image 3: full width at bottom - crop bottom third */
+        .photo-item.last-item {
+            grid-column: 1 / -1;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .photo-item.last-item img {
+            object-fit: cover;
+            object-position: top;
+            width: 100%;
+            height: calc(100% - 50px); /* Subtract caption height */
+            flex-shrink: 0;
         }
         
         @media (max-width: 768px) {
@@ -121,6 +191,30 @@
             h1 {
                 font-size: 28px;
             }
+            
+            .photo-gallery {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .photo-item.full-width,
+            .photo-item.last-item {
+                grid-column: 1;
+            }
+            
+            .portrait-row {
+                grid-column: 1;
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .portrait-row .photo-item {
+                height: 350px;
+            }
+            
+            .photo-item.last-item {
+                height: 280px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -137,6 +231,14 @@
             .download-btn {
                 width: 100%;
                 text-align: center;
+            }
+            
+            .portrait-row .photo-item {
+                height: 280px;
+            }
+            
+            .photo-item.last-item {
+                height: 220px;
             }
         }
     </style>
@@ -155,12 +257,37 @@
     </nav>
     
     <header>
-        <h1>Community</h1>
+        <h1>Community & Interests</h1>
         <div class="subtitle">Photos and involvement in the community</div>
     </header>
 
-    <div class="placeholder">
-        Content coming soon...
+    <div class="photo-gallery">
+        <!-- Photo 1 -->
+        <div class="photo-item full-width">
+            <img src="images/community-1.jpg" alt="Strongroom CC Devon tour 2025">
+            <div class="photo-caption">Strongroom CC Devon tour 2025</div>
+        </div>
+        
+        <!-- Portrait photos row: 2 and 4 -->
+        <div class="portrait-row">
+            <!-- Photo 2 -->
+            <div class="photo-item">
+                <img src="images/community-2.jpg" alt="Climbing tour of Vietnam 2024">
+                <div class="photo-caption">Climbing tour of Vietnam 2024</div>
+            </div>
+            
+            <!-- Photo 4 -->
+            <div class="photo-item">
+                <img src="images/community-4.jpg" alt="Family 2022">
+                <div class="photo-caption">Family 2022</div>
+            </div>
+        </div>
+        
+        <!-- Photo 3 -->
+        <div class="photo-item last-item">
+            <img src="images/community-3.jpg" alt="Home climbing wall project 2024">
+            <div class="photo-caption">Home climbing wall project 2024</div>
+        </div>
     </div>
     
     <script>

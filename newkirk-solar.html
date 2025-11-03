@@ -81,6 +81,18 @@
             color: #ffffff;
         }
         
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            gap: 30px;
+        }
+        
+        .header-content {
+            flex: 1;
+        }
+        
         h1 {
             font-size: 36px;
             font-weight: 700;
@@ -92,7 +104,7 @@
         .subtitle {
             font-size: 16px;
             color: #555;
-            margin-bottom: 40px;
+            margin-bottom: 0;
             font-weight: 500;
         }
         
@@ -162,6 +174,16 @@
             margin-bottom: 30px;
         }
         
+        .logo-container {
+            flex-shrink: 0;
+        }
+        
+        .logo-container img {
+            max-width: 300px;
+            height: auto;
+            max-height: 140px;
+        }
+        
         @media (max-width: 768px) {
             body {
                 padding: 30px 20px;
@@ -173,6 +195,21 @@
             
             nav a {
                 font-size: 13px;
+            }
+            
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            
+            .logo-container {
+                align-self: center;
+            }
+            
+            .logo-container img {
+                max-width: 250px;
+                max-height: 110px;
             }
             
             h1 {
@@ -194,6 +231,21 @@
             .download-btn {
                 width: 100%;
                 text-align: center;
+            }
+            
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .logo-container {
+                align-self: center;
+            }
+            
+            .logo-container img {
+                max-width: 200px;
+                max-height: 90px;
             }
             
             h1 {
@@ -220,13 +272,26 @@
     </nav>
     
     <header>
-        <h1>Newkirk Solar Services</h1>
-        <div class="subtitle">Apr 2012 – Mar 2016 | Melbourne, Australia</div>
+        <div class="header-content">
+            <h1>Newkirk Solar Services</h1>
+            <div class="subtitle">Apr 2012 – Mar 2016 | Melbourne, Australia</div>
+        </div>
+        <div class="logo-container">
+            <img src="images/ns-logo.svg" alt="Newkirk Solar Services Logo">
+        </div>
     </header>
 
     <section class="section">
         <div class="overview">
-            <p>Founded and managed a solar operations business, overseeing end-to-end project delivery from logistics and administration to installations. Built key supplier relationships and established processes for efficient solar system deployment.</p>
+            <p>Newkirk Solar Services was built to solve a simple problem: many skilled electricians wanted to sell solar systems but couldn't handle the administrative burden. The paperwork, compliance requirements, grid connection processes, and STC (Small-scale Technology Certificate) applications were overwhelming—especially for small operators.</p>
+            
+            <p style="margin-top: 15px;">I positioned the business as an operations partner for small solar retailers and electricians. Rather than competing with installers, I enabled them to focus on what they did best—installing systems—while I handled everything else.</p>
+            
+            <p style="margin-top: 15px;">The core innovation was a custom-built computer system that automated the entire process. With a few inputs, it could generate quotes, invoices, stock orders, pre-filled STC forms, electrical work requests, grid connection forms, and system manuals—all formatted correctly and ready to lodge. This system handled stock management, grid connection paperwork, STC applications, and customer communications seamlessly.</p>
+            
+            <p style="margin-top: 15px;">The service included supplying complete solar kits (panels, inverters, mounting hardware, isolators, connectors) in various quality tiers, plus comprehensive administration: lodging forms with retailers and distributors, managing STC payments, and ensuring systems were connected to the grid quickly.</p>
+            
+            <p style="margin-top: 15px;">What made this unique—and still does—was removing the operational barrier that prevented electricians from entering the solar market. By building systems that automated complexity, I enabled tradespeople to expand their businesses without needing to become administrative experts.</p>
         </div>
     </section>
 
@@ -234,8 +299,14 @@
         <h2>Key Achievements</h2>
         <div class="job">
             <ul>
-                <li>Founded and managed solar operations business, overseeing logistics, administration, and installations</li>
-                <li>Built supplier relationships and managed end-to-end project delivery</li>
+                <li>Built custom computer system from scratch that automated quote generation, invoicing, stock ordering, and document creation for solar installations</li>
+                <li>Developed streamlined workflow enabling electricians to sell solar systems without administrative expertise</li>
+                <li>Established supplier relationships across multiple quality tiers, providing complete solar kits (panels, inverters, mounting hardware, isolators, connectors)</li>
+                <li>Automated generation of compliance documents including pre-filled STC forms, electrical work requests, grid connection forms, and AS5033-compliant system manuals</li>
+                <li>Managed end-to-end grid connection process, lodging forms with retailers and distributors on behalf of installers</li>
+                <li>Facilitated STC applications and payments, ensuring prompt processing through automated form checking and lodgement</li>
+                <li>Created customer communication system with cover letters and documentation explaining connection processes</li>
+                <li>Oversaw logistics, stock management, and delivery coordination for solar system components</li>
             </ul>
         </div>
     </section>
