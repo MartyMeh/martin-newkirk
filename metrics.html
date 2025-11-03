@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photonik & CER Metrics - Martin Newkirk</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica', Arial, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 50px 60px;
+            background: #ffffff;
+        }
+        
+        nav {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            align-items: center;
+        }
+        
+        nav li {
+            margin: 0;
+        }
+        
+        nav a {
+            color: #555;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        nav a:hover {
+            color: #5c8eb3;
+        }
+        
+        nav a.active {
+            color: #5c8eb3;
+            font-weight: 600;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #5c8eb3;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+        
+        .download-btn:hover {
+            background-color: #456a86;
+            color: #ffffff;
+        }
+        
+        h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #5c8eb3;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .overview {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #444;
+            margin-bottom: 30px;
+        }
+        
+        .metric-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+            border-left: 4px solid #5c8eb3;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .metric-label {
+            font-size: 13px;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            line-height: 1.4;
+            min-height: 40px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .metric-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+        
+        .metric-explanation {
+            font-size: 12px;
+            color: #7f8c8d;
+            margin-top: auto;
+            font-style: italic;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+            align-items: stretch;
+        }
+        
+        @media (max-width: 768px) {
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .chart-note {
+            font-size: 13px;
+            color: #7f8c8d;
+            text-align: center;
+            margin-top: 15px;
+            font-style: italic;
+        }
+        
+        .chart-container {
+            margin: 30px 0;
+            padding: 20px;
+            background: #ffffff;
+            border: 1px solid #ecf0f1;
+            border-radius: 4px;
+        }
+        
+        .narrative {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #555;
+            font-style: italic;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #ecf0f1;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 30px 20px;
+            }
+            
+            nav ul {
+                gap: 15px;
+            }
+            
+            nav a {
+                font-size: 13px;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+            
+            h2 {
+                font-size: 20px;
+            }
+            
+            .metric-value {
+                font-size: 28px;
+            }
+            
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .chart-container canvas {
+                max-height: 300px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 15px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+            
+            .download-btn {
+                width: 100%;
+                text-align: center;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            h2 {
+                font-size: 18px;
+            }
+            
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="metrics.html" class="active">Photonik & CER Metrics</a></li>
+            <li><a href="#" class="download-btn">Download PDF</a></li>
+        </ul>
+    </nav>
+    
+    <header>
+        <h1>Photonik & CER Metrics</h1>
+        <div class="subtitle">Product metrics and impact for both platforms</div>
+    </header>
+
+    <section class="section">
+        <h2>Photonik</h2>
+        <div class="overview">
+            <p>Professional solar design software built as a solo technical founder using AI-assisted development (Claude, Cursor). Photonik empowers installers and designers to create accurate, professional solar system designs quickly and efficiently.</p>
+            <p style="margin-top: 15px; font-size: 14px; color: #555;"><strong>Note:</strong> "Jobs" are created by consumers (home or business owners looking to get solar installed on their properties). "Proposals" are created by professionals (installers and designers) responding to those jobs.</p>
+        </div>
+        
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-label">Jobs Created</div>
+                <div class="metric-value" id="photonik-jobs">40,333</div>
+                <div class="metric-explanation">Created by consumers</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-label">Proposals Created</div>
+                <div class="metric-value" id="photonik-proposals">18,895</div>
+                <div class="metric-explanation">Created by professionals</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-label">Installer Sign-ups</div>
+                <div class="metric-value" id="photonik-installers">2,290</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-label">Avg Proposals per Installer</div>
+                <div class="metric-value" id="photonik-avg-proposals">8.3</div>
+            </div>
+        </div>
+        
+        <div class="chart-container">
+            <canvas id="photonik-countries"></canvas>
+            <div class="chart-note" id="countries-note">Users from 181 countries total</div>
+        </div>
+        
+        <div class="narrative">
+            Built solo using AI-assisted development tools. Shipping features rapidly based on direct user feedback and validation. Every feature is prioritized based on real-world impact and user needs.
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Clean Energy Reviews</h2>
+        <div class="overview">
+            <p>Independent solar advice platform helping thousands of consumers make confident solar and battery decisions. Provides unbiased information, reviews, and guidance to support informed clean energy choices.</p>
+            <p style="margin-top: 15px; font-size: 14px; color: #555;"><strong>All-time stats (2014 - 2025)</strong></p>
+        </div>
+        
+        <div class="metrics-grid" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="metric-card">
+                <div class="metric-label">Visits</div>
+                <div class="metric-value" id="cer-visits">10,200,000</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-label">Unique Visitors</div>
+                <div class="metric-value" id="cer-unique-visitors">8,300,000</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-label">Pageviews</div>
+                <div class="metric-value" id="cer-pageviews">14,100,000</div>
+            </div>
+        </div>
+        
+        <div class="chart-container">
+            <canvas id="cer-countries"></canvas>
+            <div class="chart-note">Top 10 countries by traffic</div>
+        </div>
+        
+        <div class="narrative">
+            Helping consumers navigate the complex world of solar and battery storage with independent, actionable advice. Every piece of content is crafted to provide real value and support informed decision-making.
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script>
+        // Chart.js configuration with blue theme
+        const blueColor = '#5c8eb3';
+        const blueLight = '#7ba8c8';
+        const blueDark = '#456a86';
+        const gridColor = '#ecf0f1';
+        const textColor = '#555';
+
+        // ============================================
+        // DATA - UPDATE THESE NUMBERS WITH YOUR ACTUAL METRICS
+        // ============================================
+        
+        // Photonik Metrics - All Time Stats
+        const photonikJobs = 40333;
+        const photonikProposals = 18895;
+        const photonikInstallers = 2290;
+        const photonikAvgProposals = 8.3;
+        
+        // Photonik Top 10 Countries (update with actual data)
+        const photonikCountriesLabels = ['Australia', 'United States', 'South Africa', 'United Kingdom', 'India', 'Romania', 'New Zealand', 'Canada', 'Pakistan', 'Germany'];
+        const photonikCountriesData = [1651, 1231, 1137, 354, 229, 186, 167, 121, 119, 89]; // Proposal counts by country
+        const photonikTotalCountries = 181; // Total countries
+        
+        // Clean Energy Reviews Metrics - All Time Stats (2014 - 2025)
+        const cerVisits = 10200000;
+        const cerUniqueVisitors = 8300000;
+        const cerPageviews = 14100000;
+        
+        // CER Top 10 Countries by Visits (percentages)
+        const cerCountriesLabels = ['United States', 'Australia', 'United Kingdom', 'India', 'Canada', 'Romania', 'Philippines', 'South Africa', 'Pakistan', 'Germany'];
+        const cerCountriesData = [25.7, 15.3, 8.75, 5.86, 3.13, 1.82, 1.80, 1.63, 1.59, 1.57]; // Percentages
+        
+        // ============================================
+        // CHART CONFIGURATION - NO NEED TO EDIT BELOW
+        // ============================================
+        
+        // Update Photonik metric card values
+        document.getElementById('photonik-jobs').textContent = photonikJobs.toLocaleString();
+        document.getElementById('photonik-proposals').textContent = photonikProposals.toLocaleString();
+        document.getElementById('photonik-installers').textContent = photonikInstallers.toLocaleString();
+        document.getElementById('photonik-avg-proposals').textContent = photonikAvgProposals;
+        
+        // Update CER metric card values
+        document.getElementById('cer-visits').textContent = cerVisits.toLocaleString();
+        document.getElementById('cer-unique-visitors').textContent = cerUniqueVisitors.toLocaleString();
+        document.getElementById('cer-pageviews').textContent = cerPageviews.toLocaleString();
+        
+        // Update countries note
+        document.getElementById('countries-note').textContent = `Users from ${photonikTotalCountries} countries total`;
+
+        // Photonik Top 10 Countries Pie Chart
+        const photonikCountriesCtx = document.getElementById('photonik-countries').getContext('2d');
+        
+        // Generate color palette for pie chart
+        const pieColors = [
+            blueColor,
+            blueLight,
+            blueDark,
+            '#9bc4d4',
+            '#b8d8e8',
+            '#d4e8f2',
+            '#e8f2f8',
+            '#a8c5d6',
+            '#8bb3c7',
+            '#6da1b8'
+        ];
+        
+        new Chart(photonikCountriesCtx, {
+            type: 'pie',
+            data: {
+                labels: photonikCountriesLabels,
+                datasets: [{
+                    data: photonikCountriesData,
+                    backgroundColor: pieColors,
+                    borderColor: '#ffffff',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'right',
+                        labels: {
+                            color: textColor,
+                            font: {
+                                size: 12
+                            },
+                            padding: 12
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Top 10 Countries by Proposals Created',
+                        font: {
+                            size: 14,
+                            weight: '600'
+                        },
+                        color: textColor,
+                        padding: {
+                            bottom: 15
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                label += context.parsed.toLocaleString() + ' proposals';
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        
+        // CER Top 10 Countries Pie Chart
+        const cerCountriesCtx = document.getElementById('cer-countries').getContext('2d');
+        
+        // Generate color palette for pie chart
+        const cerPieColors = [
+            blueColor,
+            blueLight,
+            blueDark,
+            '#9bc4d4',
+            '#b8d8e8',
+            '#d4e8f2',
+            '#e8f2f8',
+            '#a8c5d6',
+            '#8bb3c7',
+            '#6da1b8'
+        ];
+        
+        new Chart(cerCountriesCtx, {
+            type: 'pie',
+            data: {
+                labels: cerCountriesLabels,
+                datasets: [{
+                    data: cerCountriesData,
+                    backgroundColor: cerPieColors,
+                    borderColor: '#ffffff',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'right',
+                        labels: {
+                            color: textColor,
+                            font: {
+                                size: 12
+                            },
+                            padding: 12,
+                            generateLabels: function(chart) {
+                                const data = chart.data;
+                                if (data.labels.length && data.datasets.length) {
+                                    return data.labels.map((label, i) => {
+                                        const value = data.datasets[0].data[i];
+                                        return {
+                                            text: `${label}: ${value}%`,
+                                            fillStyle: data.datasets[0].backgroundColor[i],
+                                            hidden: false,
+                                            index: i
+                                        };
+                                    });
+                                }
+                                return [];
+                            }
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Top 10 Countries by Visits',
+                        font: {
+                            size: 14,
+                            weight: '600'
+                        },
+                        color: textColor,
+                        padding: {
+                            bottom: 15
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                label += context.parsed + '%';
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
