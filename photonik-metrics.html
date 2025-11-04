@@ -403,8 +403,31 @@
                 display: flex;
             }
             
+            nav {
+                background-color: #5496b3;
+                border-bottom: none;
+                margin-left: -20px;
+                margin-right: -20px;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            
+            .nav-home a {
+                color: #ffffff;
+                font-size: 16px;
+                font-weight: 700;
+            }
+            
+            .nav-home a:hover {
+                color: #ffffff;
+            }
+            
             .hamburger {
                 display: flex;
+            }
+            
+            .hamburger span {
+                background-color: #ffffff;
             }
             
             nav ul {
@@ -683,7 +706,7 @@
             <p style="margin-top: 15px; font-size: 14px; color: #555;"><strong>All-time stats (2014 - 2025)</strong></p>
         </div>
         
-        <div class="metrics-grid" style="grid-template-columns: repeat(4, 1fr);">
+        <div class="metrics-grid">
             <div class="metric-card">
                 <div class="metric-label">Visits</div>
                 <div class="metric-value" id="cer-visits">10.2M</div>
