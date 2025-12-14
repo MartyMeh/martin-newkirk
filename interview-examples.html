@@ -165,6 +165,34 @@
             margin-bottom: 15px;
         }
         
+        .maps-to {
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+        
+        .maps-to-label {
+            font-weight: 600;
+            color: #5496b3;
+            margin-right: 6px;
+        }
+        
+        .relevance {
+            font-size: 13px;
+            color: #444;
+            margin-bottom: 12px;
+            line-height: 1.6;
+            font-style: italic;
+        }
+        
+        .relevance-label {
+            font-weight: 600;
+            color: #5496b3;
+            margin-right: 6px;
+            font-style: normal;
+        }
+        
         .column-section {
             margin-bottom: 20px;
         }
@@ -185,7 +213,16 @@
             font-size: 18px;
             font-weight: 700;
             color: #1a1a1a;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .quick-reference h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 12px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
@@ -213,6 +250,13 @@
         
         .quick-reference .example-link:hover {
             text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .quick-reference > div {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+            }
         }
         
         @media (max-width: 768px) {
@@ -263,18 +307,33 @@
     <div id="nav-placeholder"></div>
     
     <h1>Interview Examples - STAR Format</h1>
-    <div class="subtitle">Top 6 Examples for Ofgem Interview Reference</div>
+    <div class="subtitle">Primary and Secondary Examples for Ofgem Interview Reference</div>
     
     <div class="quick-reference">
         <h2>Quick Reference</h2>
-        <ul>
-            <li><a href="#example-2" class="example-link">#2: UAT & Quality Assurance Process</a> (Photonik & CND)</li>
-            <li><a href="#example-3" class="example-link">#3: Vehicle Safety Policy Framework Overhaul</a> (2024)</li>
-            <li><a href="#example-4" class="example-link">#4: AFCA Complaints Compliance System</a> (2023)</li>
-            <li><a href="#example-7" class="example-link">#7: Agile & OKR Implementation</a> (2018 onwards)</li>
-            <li><a href="#example-8" class="example-link">#8: Key Swap Product Launch</a> (2020-2021)</li>
-            <li><a href="#example-9" class="example-link">#9: Strategic Project Prioritization</a> (2018-2019)</li>
-        </ul>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+            <div>
+                <h3 style="font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Primary Examples</h3>
+                <ul>
+                    <li><a href="#example-2" class="example-link">#2: UAT & Quality Assurance Process</a> (Photonik & CND)</li>
+                    <li><a href="#example-3" class="example-link">#3: Vehicle Safety Policy Framework Overhaul</a> (2024)</li>
+                    <li><a href="#example-4" class="example-link">#4: AFCA Complaints Compliance System</a> (2023)</li>
+                    <li><a href="#example-7" class="example-link">#7: Agile & OKR Implementation</a> (2018 onwards)</li>
+                    <li><a href="#example-8" class="example-link">#8: Key Swap Product Launch</a> (2020-2021)</li>
+                    <li><a href="#example-9" class="example-link">#9: Strategic Project Prioritization</a> (2018-2019)</li>
+                </ul>
+            </div>
+            <div>
+                <h3 style="font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Secondary Examples</h3>
+                <ul>
+                    <li><a href="#example-1" class="example-link">#1: Platform Rebuild with AI</a> (Apr-Sep 2025)</li>
+                    <li><a href="#example-5" class="example-link">#5: EV Program Dashboard & Campaigns</a> (2023)</li>
+                    <li><a href="#example-6" class="example-link">#6: Vehicle Delisting Policy</a> (2021-2024)</li>
+                    <li><a href="#example-10" class="example-link">#10: Fleet Optimization</a> (2016-2018)</li>
+                    <li><a href="#example-11" class="example-link">#11: Solar Automation System Build</a> (2012-2016)</li>
+                </ul>
+            </div>
+        </div>
     </div>
     
     <div class="table-container">
@@ -295,6 +354,10 @@
                             <div class="title-info">2014-2024</div>
                             <div class="title-info">UAT & Quality Assurance Process</div>
                             <div class="title-meta">Founder (Photonik) / Product Manager (Car Next Door)</div>
+                        </div>
+                        <div class="column-section">
+                            <div class="maps-to"><span class="maps-to-label">Maps to:</span>UAT Planning and Management, Regulatory Compliance Testing, Stakeholder Management, Quality Assurance, Risk Management</div>
+                            <div class="relevance"><span class="relevance-label">Relevance:</span>Demonstrates appropriate UAT for agile environments - phased rollouts, beta testing, compliance verification, and post-release monitoring rather than heavy waterfall processes.</div>
                         </div>
                         <div class="column-section">
                             <span class="star-label">Situation</span>
@@ -352,6 +415,10 @@
                             <div class="title-meta">Policy, Safety & Risk Programs Lead (Uber Carshare)</div>
                         </div>
                         <div class="column-section">
+                            <div class="maps-to"><span class="maps-to-label">Maps to:</span>Making Effective Decisions, Changing and Improving, Communicating and Influencing, Stakeholder Management, Data-driven KPIs</div>
+                            <div class="relevance"><span class="relevance-label">Relevance:</span>Experience managing safety and compliance frameworks in regulated environment directly prepares for Ofgem context, where products must meet statutory obligations and protect vulnerable consumers. Safety dashboard approach mirrors KPI monitoring essential for scheme administration products.</div>
+                        </div>
+                        <div class="column-section">
                             <span class="star-label">Situation</span>
                             <div class="star-content">
                                 <ul>
@@ -404,6 +471,10 @@
                             <div class="title-meta">Senior Associate, Strategy & Operations (Car Next Door / Uber Carshare)</div>
                         </div>
                         <div class="column-section">
+                            <div class="maps-to"><span class="maps-to-label">Maps to:</span>Making Effective Decisions, Delivering at Pace, Stakeholder Management (conflicting needs), Regulatory Compliance, Data-driven KPIs, Changing and Improving</div>
+                            <div class="relevance"><span class="relevance-label">Relevance:</span>Direct experience being regulated, understanding ombudsman escalation processes, building systems to meet regulator requirements while managing competing business priorities.</div>
+                        </div>
+                        <div class="column-section">
                             <span class="star-label">Situation</span>
                             <div class="star-content">
                                 <ul>
@@ -447,6 +518,10 @@
                             <div class="title-info">2018+</div>
                             <div class="title-info">Agile & OKR Implementation</div>
                             <div class="title-meta">Product Manager (Car Next Door)</div>
+                        </div>
+                        <div class="column-section">
+                            <div class="maps-to"><span class="maps-to-label">Maps to:</span>Changing and Improving, Agile Development, Making Effective Decisions, Communicating and Influencing, Stakeholder Management</div>
+                            <div class="relevance"><span class="relevance-label">Relevance:</span>Shows ability to establish processes from scratch through research, learning from best practices, and adapting to organizational context. Demonstrates initiative in seeking out experts and translating external knowledge to internal implementation.</div>
                         </div>
                         <div class="column-section">
                             <span class="star-label">Situation</span>
@@ -494,6 +569,10 @@
                             <div class="title-info">2020-2021</div>
                             <div class="title-info">Key Swap Product Launch</div>
                             <div class="title-meta">Product Manager (Car Next Door)</div>
+                        </div>
+                        <div class="column-section">
+                            <div class="maps-to"><span class="maps-to-label">Maps to:</span>Making Effective Decisions, Changing and Improving, Stakeholder Management, Data-driven KPIs, Delivering at Pace, Communicating and Influencing</div>
+                            <div class="relevance"><span class="relevance-label">Relevance:</span>Demonstrates ability to lead major product initiatives, deliver transformative results, and manage complex stakeholder relationships while balancing competing priorities.</div>
                         </div>
                         <div class="column-section">
                             <span class="star-label">Situation</span>
@@ -547,6 +626,10 @@
                             <div class="title-meta">Growth Lead (Car Next Door)</div>
                         </div>
                         <div class="column-section">
+                            <div class="maps-to"><span class="maps-to-label">Maps to:</span>Making Effective Decisions, Data-driven KPIs, Stakeholder Management, Communicating and Influencing</div>
+                            <div class="relevance"><span class="relevance-label">Relevance:</span>Demonstrates strategic thinking and data-driven prioritization essential for managing competing initiatives in government context with limited resources.</div>
+                        </div>
+                        <div class="column-section">
                             <span class="star-label">Situation</span>
                             <div class="star-content">
                                 <ul>
@@ -579,6 +662,272 @@
                                 <ul>
                                     <li>Proposed prioritizing SEO work because: (a) SEO requires time to compound and grow, so starting earlier maximized long-term value, and (b) strategically, it was better to expand the top of the funnel first - getting more users into the system - before optimizing conversion rates</li>
                                     <li>We ultimately delivered both projects, but the strategic sequencing decision ensured we maximized impact given resource constraints</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr id="example-1">
+                    <td class="example-number">1</td>
+                    <td>
+                        <div class="column-section">
+                            <div class="title-info">Apr - Sep 2025</div>
+                            <div class="title-info">Platform Rebuild with AI</div>
+                            <div class="title-meta">Founder (Photonik)</div>
+                        </div>
+                        <div class="column-section">
+                            <div class="maps-to"><span class="maps-to-label">Maps to:</span>Agile Development, Delivering at Pace, Making Effective Decisions (technical/strategic)</div>
+                            <div class="relevance"><span class="relevance-label">Relevance:</span>Demonstrates cutting-edge AI-assisted development and ability to deliver at pace, essential for modernizing government systems efficiently.</div>
+                        </div>
+                        <div class="column-section">
+                            <span class="star-label">Situation</span>
+                            <div class="star-content">
+                                <ul>
+                                    <li>Platform needed complete rebuild to modernize architecture and improve performance</li>
+                                    <li>Traditional development approach would take approximately 15 months, which was too slow for business needs</li>
+                                    <li>Needed to leverage new AI-assisted development tools to accelerate delivery while maintaining quality</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="column-section">
+                            <span class="star-label">Task</span>
+                            <div class="star-content">Lead complete platform rebuild using AI-assisted development (Claude, Cursor) to deliver faster while maintaining quality standards.</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="column-section">
+                            <span class="star-label">Action</span>
+                            <div class="star-content">
+                                <ul>
+                                    <li>Adopted AI-assisted development tools (Claude, Cursor) to accelerate coding and problem-solving</li>
+                                    <li>Managed technical roadmap and sprint planning to coordinate rebuild efforts</li>
+                                    <li>Balanced speed with quality, ensuring proper testing and code review processes</li>
+                                    <li>Coordinated development work across the platform rebuild project</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="column-section">
+                            <span class="star-label">Result</span>
+                            <div class="star-content">
+                                <ul>
+                                    <li>Delivered complete platform rebuild in 6 months - less than half the time traditional development would have taken (15 months)</li>
+                                    <li>Demonstrated ability to leverage cutting-edge tools to deliver at pace</li>
+                                    <li>Successfully modernized platform architecture while maintaining quality standards</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr id="example-5">
+                    <td class="example-number">5</td>
+                    <td>
+                        <div class="column-section">
+                            <div class="title-info">2023</div>
+                            <div class="title-info">EV Program Dashboard & Campaigns</div>
+                            <div class="title-meta">Senior Associate, Strategy & Operations (Car Next Door / Uber Carshare)</div>
+                        </div>
+                        <div class="column-section">
+                            <div class="maps-to"><span class="maps-to-label">Maps to:</span>Data-driven KPIs, Stakeholder Management, Communicating and Influencing</div>
+                            <div class="relevance"><span class="relevance-label">Relevance:</span>Shows data-driven KPI management and cross-functional collaboration essential for monitoring scheme performance and stakeholder engagement.</div>
+                        </div>
+                        <div class="column-section">
+                            <span class="star-label">Situation</span>
+                            <div class="star-content">
+                                <ul>
+                                    <li>Company had an EV program to encourage electric vehicle owners to join the platform</li>
+                                    <li>EV supply on the platform needed to increase to meet growing demand</li>
+                                    <li>Lacked visibility into EV program performance and needed better engagement strategies</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="column-section">
+                            <span class="star-label">Task</span>
+                            <div class="star-content">Build and present EV program performance dashboards and develop campaigns to increase EV supply on the platform.</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="column-section">
+                            <span class="star-label">Action</span>
+                            <div class="star-content">
+                                <ul>
+                                    <li>Built comprehensive EV program performance dashboards to track key metrics and identify opportunities</li>
+                                    <li>Presented dashboards to stakeholders to communicate program performance and insights</li>
+                                    <li>Partnered with Growth and Product teams to develop marketing and engagement campaigns targeting EV owners</li>
+                                    <li>Coordinated cross-functional efforts to execute campaigns and measure impact</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="column-section">
+                            <span class="star-label">Result</span>
+                            <div class="star-content">
+                                <ul>
+                                    <li>Increased EV supply on the platform through targeted campaigns and improved program visibility</li>
+                                    <li>Established data-driven approach to EV program management with clear performance metrics</li>
+                                    <li>Demonstrated ability to collaborate across teams and use data to drive strategic initiatives</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr id="example-6">
+                    <td class="example-number">6</td>
+                    <td>
+                        <div class="column-section">
+                            <div class="title-info">2021 - 2024</div>
+                            <div class="title-info">Vehicle Delisting Policy</div>
+                            <div class="title-meta">Senior Associate, Strategy & Operations (Car Next Door / Uber Carshare)</div>
+                        </div>
+                        <div class="column-section">
+                            <div class="maps-to"><span class="maps-to-label">Maps to:</span>Making Effective Decisions, Communicating and Influencing, Data-driven KPIs</div>
+                            <div class="relevance"><span class="relevance-label">Relevance:</span>Demonstrates data-driven decision making and stakeholder management when balancing competing interests, essential for policy implementation.</div>
+                        </div>
+                        <div class="column-section">
+                            <span class="star-label">Situation</span>
+                            <div class="star-content">
+                                <ul>
+                                    <li>Fleet included underperforming vehicles and owners that were reducing overall fleet profitability and utilisation</li>
+                                    <li>Needed to improve fleet performance metrics while maintaining positive relationships with vehicle owners</li>
+                                    <li>Required a data-driven approach to identify and address underperformance</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="column-section">
+                            <span class="star-label">Task</span>
+                            <div class="star-content">Design and pilot a data-driven policy to delist underperforming vehicles/owners to improve fleet profitability and utilisation while balancing owner relationships with business performance.</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="column-section">
+                            <span class="star-label">Action</span>
+                            <div class="star-content">
+                                <ul>
+                                    <li>Analyzed fleet performance data to identify underperforming vehicles and owners based on key metrics</li>
+                                    <li>Designed delisting policy with clear criteria and processes for identifying and removing underperformers</li>
+                                    <li>Piloted the policy approach to test effectiveness and refine criteria</li>
+                                    <li>Balanced owner relationship management with business performance requirements, ensuring clear communication and fair processes</li>
+                                    <li>Monitored impact of delisting policy on overall fleet metrics</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="column-section">
+                            <span class="star-label">Result</span>
+                            <div class="star-content">
+                                <ul>
+                                    <li>Improved fleet profitability and utilisation through systematic removal of underperforming vehicles</li>
+                                    <li>Established data-driven approach to fleet management with clear performance criteria</li>
+                                    <li>Maintained positive owner relationships through transparent communication and fair processes</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr id="example-10">
+                    <td class="example-number">10</td>
+                    <td>
+                        <div class="column-section">
+                            <div class="title-info">2016 - 2018</div>
+                            <div class="title-info">Fleet Optimization</div>
+                            <div class="title-meta">Fleet Manager (Car Next Door)</div>
+                        </div>
+                        <div class="column-section">
+                            <div class="maps-to"><span class="maps-to-label">Maps to:</span>Data-driven decisions, Operations management, Team leadership</div>
+                            <div class="relevance"><span class="relevance-label">Relevance:</span>Shows operations management and data-driven optimization at scale, relevant for managing scheme operations and performance.</div>
+                        </div>
+                        <div class="column-section">
+                            <span class="star-label">Situation</span>
+                            <div class="star-content">
+                                <ul>
+                                    <li>Managed nationwide sales and operations teams for peer-to-peer carsharing platform</li>
+                                    <li>Fleet utilisation and operational costs needed optimization to improve business performance</li>
+                                    <li>Customer retention was a key concern requiring focused attention</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="column-section">
+                            <span class="star-label">Task</span>
+                            <div class="star-content">Manage sales and operations teams nationwide, optimize fleet utilisation, reduce operational costs, and improve customer retention through data-driven strategies.</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="column-section">
+                            <span class="star-label">Action</span>
+                            <div class="star-content">
+                                <ul>
+                                    <li>Managed sales and operations teams across multiple locations nationwide</li>
+                                    <li>Analyzed fleet utilisation data to identify optimization opportunities</li>
+                                    <li>Implemented data-driven strategies to improve fleet performance and reduce operational costs</li>
+                                    <li>Developed and executed initiatives to improve customer retention</li>
+                                    <li>Coordinated team efforts to achieve optimization goals</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="column-section">
+                            <span class="star-label">Result</span>
+                            <div class="star-content">
+                                <ul>
+                                    <li>Optimized fleet utilisation through data-driven decision-making</li>
+                                    <li>Reduced operational costs while maintaining service quality</li>
+                                    <li>Improved customer retention through focused initiatives</li>
+                                    <li>Demonstrated ability to manage teams and operations at scale</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr id="example-11">
+                    <td class="example-number">11</td>
+                    <td>
+                        <div class="column-section">
+                            <div class="title-info">2012 - 2016</div>
+                            <div class="title-info">Solar Automation System Build</div>
+                            <div class="title-meta">Founder (Newkirk Solar Services)</div>
+                        </div>
+                        <div class="column-section">
+                            <div class="maps-to"><span class="maps-to-label">Maps to:</span>Understanding Government Schemes (STCs), Regulatory Compliance, Technical Product Delivery, Changing and Improving</div>
+                            <div class="relevance"><span class="relevance-label">Relevance:</span>Direct experience with government energy schemes (STCs similar to UK's FIT/RO) and building systems to meet regulatory compliance requirements - directly relevant to Ofgem's work.</div>
+                        </div>
+                        <div class="column-section">
+                            <span class="star-label">Situation</span>
+                            <div class="star-content">
+                                <ul>
+                                    <li>Electricians entering the solar market faced significant operational barriers with manual processes</li>
+                                    <li>Quote generation, invoicing, and compliance document creation were time-consuming and error-prone</li>
+                                    <li>Government scheme requirements (STCs - Small-scale Technology Certificates) needed to be properly handled for compliance</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="column-section">
+                            <span class="star-label">Task</span>
+                            <div class="star-content">Build custom system from scratch that automates quote generation, invoicing, and compliance documents to remove operational barriers for electricians entering the solar market.</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="column-section">
+                            <span class="star-label">Action</span>
+                            <div class="star-content">
+                                <ul>
+                                    <li>Built custom automation system from scratch to handle solar installation workflows</li>
+                                    <li>Automated quote generation process, reducing time and errors</li>
+                                    <li>Automated invoicing system for streamlined financial processes</li>
+                                    <li>Automated compliance document generation including: STC forms (government scheme certificates), grid connection documents, AS5033 installation manuals</li>
+                                    <li>Ensured system met regulatory requirements for government schemes</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="column-section">
+                            <span class="star-label">Result</span>
+                            <div class="star-content">
+                                <ul>
+                                    <li>Removed operational barriers for electricians entering the solar market</li>
+                                    <li>Significantly reduced time and errors in quote generation, invoicing, and compliance documentation</li>
+                                    <li>Demonstrated understanding of government energy schemes (STCs) and regulatory compliance requirements</li>
+                                    <li>Built technical product that enabled business growth and market entry</li>
+                                    <li><strong>Relevance to Ofgem:</strong> Direct experience with government energy schemes (STCs are similar to UK's FIT/RO schemes) and building systems to meet regulatory compliance requirements</li>
                                 </ul>
                             </div>
                         </div>
