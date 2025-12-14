@@ -68,9 +68,6 @@
             <div class="nav-download">
                 <a href="#" class="download-btn">Download PDF CV</a>
             </div>
-            <div class="nav-private">
-                <button class="private-lock" id="private-lock" aria-label="Private pages" title="Private pages">🔒</button>
-            </div>
         </div>
     `;
     
@@ -167,8 +164,8 @@
             });
         }
         
-        // Handle private lock icon click
-        const privateLock = document.getElementById('private-lock');
+        // Handle private lock icon click (both nav and home page)
+        const privateLock = document.getElementById('private-lock') || document.getElementById('home-private-lock');
         const passwordModal = document.getElementById('password-modal');
         const passwordInput = document.getElementById('password-input');
         const passwordSubmit = document.getElementById('password-submit');
@@ -176,25 +173,28 @@
         const passwordError = document.getElementById('password-error');
         const privatePageLinks = document.querySelectorAll('.private-page-link');
         
-        if (privateLock && passwordModal) {
+        // Initialize password modal functionality if modal exists
+        if (passwordModal) {
             // Open modal on lock click
-            privateLock.addEventListener('click', function() {
-                if (isAuthenticated()) {
-                    // If already authenticated, show pages list
-                    passwordModal.classList.add('active');
-                    passwordInput.style.display = 'none';
-                    passwordSubmit.style.display = 'none';
-                    passwordCancel.textContent = 'Close';
-                } else {
-                    // Show password prompt
-                    passwordModal.classList.add('active');
-                    passwordInput.style.display = 'block';
-                    passwordSubmit.style.display = 'block';
-                    passwordCancel.textContent = 'Cancel';
-                    passwordInput.focus();
-                    passwordError.classList.remove('show');
-                }
-            });
+            if (privateLock) {
+                privateLock.addEventListener('click', function() {
+                    if (isAuthenticated()) {
+                        // If already authenticated, show pages list
+                        passwordModal.classList.add('active');
+                        passwordInput.style.display = 'none';
+                        passwordSubmit.style.display = 'none';
+                        passwordCancel.textContent = 'Close';
+                    } else {
+                        // Show password prompt
+                        passwordModal.classList.add('active');
+                        passwordInput.style.display = 'block';
+                        passwordSubmit.style.display = 'block';
+                        passwordCancel.textContent = 'Cancel';
+                        passwordInput.focus();
+                        passwordError.classList.remove('show');
+                    }
+                });
+            }
             
             // Handle password submission
             if (passwordSubmit) {

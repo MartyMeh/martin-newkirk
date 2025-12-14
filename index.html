@@ -122,7 +122,9 @@
         }
         
         .cta-section {
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-top: 50px;
             padding-top: 40px;
             border-top: 1px solid #ecf0f1;
@@ -139,6 +141,21 @@
             font-weight: 600;
             transition: background-color 0.2s;
             margin: 0 10px 10px;
+        }
+        
+        .home-private-lock {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: #7f8c8d;
+            padding: 10px;
+            transition: color 0.2s;
+            line-height: 1;
+        }
+        
+        .home-private-lock:hover {
+            color: #5496b3;
         }
         
         .cta-link:hover {
@@ -191,6 +208,16 @@
                 width: 100%;
                 margin: 5px 0;
             }
+            
+            .cta-section {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .home-private-lock {
+                margin-top: 10px;
+            }
         }
     </style>
 </head>
@@ -235,6 +262,7 @@ If you're building products in clean energy or operational efficiency, and looki
 
     <div class="cta-section">
         <a href="/photonik-metrics.html" class="cta-link cta-link-secondary">View Photonik & CER</a>
+        <button class="home-private-lock" id="home-private-lock" aria-label="Private pages" title="Private pages">🔒</button>
     </div>
     
     <script src="/js/nav.js"></script>

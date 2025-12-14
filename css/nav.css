@@ -133,27 +133,7 @@ nav a.active {
     color: #ffffff;
 }
 
-/* Private Pages Lock Icon */
-.nav-private {
-    display: flex;
-    align-items: center;
-    margin-left: 15px;
-}
-
-.private-lock {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-    color: #7f8c8d;
-    padding: 5px 8px;
-    transition: color 0.2s;
-    line-height: 1;
-}
-
-.private-lock:hover {
-    color: #5496b3;
-}
+/* Private Pages Lock Icon - removed from nav, now on homepage */
 
 /* Password Modal */
 .password-modal {
