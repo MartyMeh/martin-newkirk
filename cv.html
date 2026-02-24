@@ -26,75 +26,6 @@
             background: #ffffff;
         }
         
-        /* PDF page break classes */
-        .page-break-after {
-            page-break-after: always;
-            break-after: page;
-        }
-        
-        /* Lightbox styles */
-        .lightbox {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .lightbox.active {
-            display: flex;
-            opacity: 1;
-        }
-        
-        .lightbox-content {
-            position: relative;
-            max-width: 90%;
-            max-height: 90vh;
-            width: 900px;
-            background-color: #ffffff;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-        
-        .lightbox-close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: none;
-            border: none;
-            font-size: 28px;
-            color: #666;
-            cursor: pointer;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: background-color 0.2s, color 0.2s;
-            z-index: 1001;
-        }
-        
-        .lightbox-close:hover {
-            background-color: #ecf0f1;
-            color: #1a1a1a;
-        }
-        
-        .lightbox video {
-            width: 100%;
-            height: auto;
-            border-radius: 4px;
-            display: block;
-        }
-        
         header {
             margin-bottom: 35px;
             padding-bottom: 25px;
@@ -145,6 +76,38 @@
             margin-bottom: 35px;
         }
         
+        /* Tighter spacing when generating PDF (avoids big blank gaps) */
+        body.pdf-export .section {
+            margin-bottom: 16px;
+        }
+        body.pdf-export h2 {
+            margin-bottom: 8px;
+            padding-bottom: 4px;
+        }
+        body.pdf-export .job {
+            margin-bottom: 12px;
+        }
+        body.pdf-export .job ul {
+            margin-top: 6px;
+        }
+        body.pdf-export .job li {
+            margin-bottom: 4px;
+        }
+        body.pdf-export .continuation {
+            margin-top: 10px;
+            padding-top: 8px;
+        }
+        body.pdf-export header {
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+        }
+        body.pdf-export .summary-with-photo .summary {
+            margin-top: 0;
+        }
+        body.pdf-export .summary-with-photo .summary + .summary {
+            margin-top: 8px;
+        }
+        
         h2 {
             font-size: 20px;
             font-weight: 700;
@@ -182,35 +145,9 @@
             height: 225px;
             border-radius: 4px;
             object-fit: cover;
+            object-position: top center;
             border: 2px solid #ecf0f1;
             display: block;
-        }
-        
-        .summary-photo .video-button-container {
-            position: absolute;
-            bottom: 7px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: calc(100% - 30px);
-            display: flex;
-            justify-content: center;
-        }
-        
-        .summary-photo .video-button-container .download-btn {
-            margin: 0;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .play-icon {
-            width: 0;
-            height: 0;
-            border-left: 8px solid #ffffff;
-            border-top: 6px solid transparent;
-            border-bottom: 6px solid transparent;
-            display: inline-block;
-            flex-shrink: 0;
         }
         
         .job {
@@ -329,11 +266,6 @@
                 height: 220px;
             }
             
-            .lightbox-content {
-                width: 95%;
-                padding: 15px;
-            }
-            
             .two-column {
                 grid-template-columns: 1fr;
                 gap: 20px;
@@ -425,7 +357,7 @@
     
     <header>
         <h1>Martin Newkirk</h1>
-        <div class="subtitle">Co-Founder @ Photonik | Business Operations & Product Management</div>
+        <div class="subtitle">Co-Founder @ Photonik | Product & Operations</div>
         <div class="contact">
             London, England, United Kingdom (British Citizen)<br>
             <a href="mailto:martinnewkirk@gmail.com">martinnewkirk@gmail.com</a> | 
@@ -441,20 +373,14 @@
         <div class="summary-with-photo">
             <div class="summary-text">
                 <div class="summary">
-                    Founder and product leader with 10+ years building products in clean energy and transport. Currently building Photonik as a side project — a professional solar design software used by 2,000+ installers globally from over 100 countries.
+                    Founder with 10+ years in product and operations in clean energy and transport. Built Photonik — professional solar design software used by 2,000+ installers globally from over 100 countries.
                 </div>
                 <div class="summary" style="margin-top: 15px;">
-                    Previously scaled Car Next Door from startup to Uber acquisition, leading product, strategy, and operations. Deep expertise in 0→1 venture building, product-market fit validation, and driving ROI through rapid experimentation.
+                    Previously scaled Car Next Door from startup to Uber acquisition, leading product, strategy, and operations. Deep expertise in 0→1 venture building, operations scaling, product-market fit validation, and driving ROI through rapid experimentation.
                 </div>
             </div>
             <div class="summary-photo">
-                <img src="images/profile.jpg" alt="Martin Newkirk" class="profile-photo">
-                <div class="video-button-container">
-                    <a href="#" class="download-btn download-btn-secondary" id="view-intro-video">
-                        View intro video
-                        <span class="play-icon"></span>
-                    </a>
-                </div>
+                <img src="images/mn-2-cropped.jpeg" alt="Martin Newkirk" class="profile-photo">
             </div>
         </div>
     </section>
@@ -462,18 +388,25 @@
     <section class="section">
         <h2>Experience</h2>
         
-        <div class="job page-break-after" id="photonik-job">
+        <div class="job" id="photonik-job">
             <div class="job-header">
                 <div class="company"><a href="/photonik-metrics.html" target="_blank">Photonik / Clean Energy Reviews</a></div>
-                <div class="role">Co-Founder | Product Manager</div>
-                <div class="date-location">Jan 2014 – Present | London, UK</div>
+                <div class="role">Co-Founder | Product & Operations</div>
+                <div class="date-location">2022 – Present | London, UK</div>
             </div>
             <ul>
                 <li><strong>Built Photonik</strong> using AI-assisted development (Claude, Cursor, GPT-5), shipping professional solar design software used by 2,000+ installers and designers globally from over 100 countries</li>
-                <li>Lead product strategy, planning, and execution—managing technical roadmap and sprint planning</li>
-                <li>Engage directly with users for continuous feedback and validation, driving feature prioritisation based on real-world impact</li>
-                <li>Created Clean Energy Reviews (CER), an independent advice platform helping thousands of consumers make confident solar and battery decisions</li>
+                <li>Lead product strategy, planning, and execution—roadmap, sprint planning, and delivery</li>
+                <li>Engage directly with users and stakeholders for feedback and validation, driving prioritisation based on impact</li>
             </ul>
+
+            <div class="continuation">
+                <div class="role">Clean Energy Reviews (CER)</div>
+                <div class="date-location">2014 – Present</div>
+                <ul>
+                    <li>Created CER, an independent advice platform helping thousands of consumers make confident solar and battery decisions</li>
+                </ul>
+            </div>
         </div>
 
         <div class="job">
@@ -585,7 +518,7 @@
         <section class="section" style="margin-bottom: 15px;">
             <h2 style="margin-bottom: 15px;">Skills</h2>
             <div class="skill-group">
-                <span class="skill-category">Core:</span> Product Management, AI-Assisted Development, Business Operations, Product Operations, People Management, Strategic Planning, Data Analysis, Agile Methodologies
+                <span class="skill-category">Core:</span> Product Management, Business Operations, Product Operations, Strategic Planning, People Management, Data Analysis, Agile Methodologies, AI-Assisted Development
             </div>
         </section>
 
@@ -603,188 +536,110 @@
         </section>
     </div>
 
-    <!-- Lightbox for intro video -->
-    <div id="video-lightbox" class="lightbox">
-        <div class="lightbox-content">
-            <button class="lightbox-close" id="lightbox-close">&times;</button>
-            <video controls id="intro-video">
-                <source src="images/intro.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-    </div>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script src="/js/nav.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Lightbox functionality
-            const viewIntroBtn = document.getElementById('view-intro-video');
-            const lightbox = document.getElementById('video-lightbox');
-            const lightboxClose = document.getElementById('lightbox-close');
-            const introVideo = document.getElementById('intro-video');
+        function runPDFDownload() {
+            const nav = document.querySelector('nav');
+            const allDownloadButtons = document.querySelectorAll('.download-btn');
+            const profilePhotoContainer = document.querySelector('.summary-photo');
             
-            // Open lightbox
-            if (viewIntroBtn) {
-                viewIntroBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    lightbox.classList.add('active');
-                    introVideo.play();
-                });
+            if (!nav) { console.log('[CV] No nav found, aborting'); return; }
+            if (typeof html2pdf === 'undefined') { console.log('[CV] html2pdf not loaded yet'); return; }
+            
+            // Store original display/styles
+            const originalNavDisplay = nav.style.display;
+            const originalNavPosition = nav.style.position;
+            const originalNavTop = nav.style.top;
+            const originalNavZIndex = nav.style.zIndex;
+            const originalNavBackground = nav.style.backgroundColor;
+            const originalButtonDisplays = Array.from(allDownloadButtons).map(btn => btn.style.display);
+            const originalPhotoDisplay = profilePhotoContainer ? profilePhotoContainer.style.display : '';
+            
+            // Hide elements and remove sticky positioning for PDF
+            nav.style.display = 'none';
+            nav.style.position = 'static';
+            nav.style.top = 'auto';
+            nav.style.zIndex = 'auto';
+            nav.style.backgroundColor = 'transparent';
+            allDownloadButtons.forEach(btn => btn.style.display = 'none');
+            if (profilePhotoContainer) {
+                profilePhotoContainer.style.display = 'none';
             }
             
-            // Close lightbox
-            function closeLightbox() {
-                lightbox.classList.remove('active');
-                introVideo.pause();
-                introVideo.currentTime = 0;
-            }
+            document.body.classList.add('pdf-export');
+            const element = document.body;
             
-            if (lightboxClose) {
-                lightboxClose.addEventListener('click', closeLightbox);
-            }
+            setTimeout(function() {
+                window.scrollTo(0, 0);
+                setTimeout(function() {
+                    const opt = {
+                        margin: [12, 15, 15, 15],
+                        filename: 'Martin-Newkirk-CV.pdf',
+                        image: { type: 'jpeg', quality: 0.98 },
+                        html2canvas: { scale: 2, useCORS: true, logging: false, windowWidth: window.innerWidth, windowHeight: window.innerHeight, scrollX: 0, scrollY: 0 },
+                        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                        pagebreak: { mode: ['avoid-all', 'css'] }
+                    };
+                    console.log('[CV] Starting PDF generation');
+                    html2pdf().set(opt).from(element).save().then(function() {
+                        console.log('[CV] PDF download complete');
+                        document.body.classList.remove('pdf-export');
+                        nav.style.display = originalNavDisplay;
+                        nav.style.position = originalNavPosition;
+                        nav.style.top = originalNavTop;
+                        nav.style.zIndex = originalNavZIndex;
+                        nav.style.backgroundColor = originalNavBackground;
+                        allDownloadButtons.forEach((btn, index) => { btn.style.display = originalButtonDisplays[index]; });
+                        if (profilePhotoContainer) profilePhotoContainer.style.display = originalPhotoDisplay;
+                    }).catch(function(error) {
+                        console.error('PDF generation error:', error);
+                        document.body.classList.remove('pdf-export');
+                        nav.style.display = originalNavDisplay;
+                        nav.style.position = originalNavPosition;
+                        nav.style.top = originalNavTop;
+                        nav.style.zIndex = originalNavZIndex;
+                        nav.style.backgroundColor = originalNavBackground;
+                        allDownloadButtons.forEach((btn, index) => { btn.style.display = originalButtonDisplays[index]; });
+                        if (profilePhotoContainer) profilePhotoContainer.style.display = originalPhotoDisplay;
+                    });
+                }, 200);
+            }, 100);
+        }
+        
+        function initCVDownload() {
+            console.log('[CV] initCVDownload ran, html2pdf:', typeof html2pdf);
             
-            // Close on background click
-            lightbox.addEventListener('click', function(e) {
-                if (e.target === lightbox) {
-                    closeLightbox();
-                }
-            });
+            // Use capture phase so we run before nav or other handlers; catch any click on .download-btn
+            document.addEventListener('click', function(e) {
+                var link = e.target.closest && e.target.closest('a.download-btn');
+                if (!link) return;
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('[CV] Download PDF clicked (delegated)');
+                runPDFDownload();
+            }, true);
             
-            // Close on ESC key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-                    closeLightbox();
-                }
-            });
-            
-            // Get all download buttons (excluding the video button)
-            const downloadButtons = document.querySelectorAll('.download-btn:not(#view-intro-video)');
-            
-            downloadButtons.forEach(function(button) {
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    // Hide elements that shouldn't appear in PDF
-                    const nav = document.querySelector('nav');
-                    const allDownloadButtons = document.querySelectorAll('.download-btn');
-                    const profilePhotoContainer = document.querySelector('.summary-photo');
-                    
-                    // Store original display/styles
-                    const originalNavDisplay = nav.style.display;
-                    const originalNavPosition = nav.style.position;
-                    const originalNavTop = nav.style.top;
-                    const originalNavZIndex = nav.style.zIndex;
-                    const originalNavBackground = nav.style.backgroundColor;
-                    const originalButtonDisplays = Array.from(allDownloadButtons).map(btn => btn.style.display);
-                    const originalPhotoDisplay = profilePhotoContainer ? profilePhotoContainer.style.display : '';
-                    
-                    // Hide elements and remove sticky positioning for PDF
-                    nav.style.display = 'none';
-                    nav.style.position = 'static';
-                    nav.style.top = 'auto';
-                    nav.style.zIndex = 'auto';
-                    nav.style.backgroundColor = 'transparent';
-                    allDownloadButtons.forEach(btn => btn.style.display = 'none');
-                    if (profilePhotoContainer) {
-                        profilePhotoContainer.style.display = 'none';
-                    }
-                    
-                    // Get the element to convert (the body content)
-                    const element = document.body;
-                    
-                    // Add page break to Photonik section (end of page 1)
-                    const photonikJob = document.getElementById('photonik-job');
-                    
-                    if (photonikJob) {
-                        photonikJob.style.pageBreakAfter = 'always';
-                        photonikJob.style.breakAfter = 'page';
-                    }
-                    
-                    // Small delay to ensure styles are applied
-                    setTimeout(function() {
-                        // Scroll to top before generating PDF
-                        window.scrollTo(0, 0);
-                        
-                        // Additional small delay after scroll to ensure page is at top
-                        setTimeout(function() {
-                            // PDF options - reduced top margin by ~1cm
-                            const opt = {
-                                margin: [5, 15, 15, 15],
-                                filename: 'Martin-Newkirk-CV.pdf',
-                                image: { type: 'jpeg', quality: 0.98 },
-                                html2canvas: { 
-                                    scale: 2, 
-                                    useCORS: true,
-                                    logging: false,
-                                    windowWidth: window.innerWidth,
-                                    windowHeight: window.innerHeight,
-                                    scrollX: 0,
-                                    scrollY: 0
-                                },
-                                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-                                pagebreak: { mode: ['avoid-all', 'css'] }
-                            };
-                            
-                            // Generate and download PDF
-                            html2pdf().set(opt).from(element).save().then(function() {
-                                // Restore elements after PDF generation
-                                nav.style.display = originalNavDisplay;
-                                nav.style.position = originalNavPosition;
-                                nav.style.top = originalNavTop;
-                                nav.style.zIndex = originalNavZIndex;
-                                nav.style.backgroundColor = originalNavBackground;
-                                allDownloadButtons.forEach((btn, index) => {
-                                    btn.style.display = originalButtonDisplays[index];
-                                });
-                                if (profilePhotoContainer) {
-                                    profilePhotoContainer.style.display = originalPhotoDisplay;
-                                }
-                                // Remove page break styles
-                                if (photonikJob) {
-                                    photonikJob.style.pageBreakAfter = '';
-                                    photonikJob.style.breakAfter = '';
-                                }
-                            }).catch(function(error) {
-                                console.error('PDF generation error:', error);
-                                // Restore elements even on error
-                                nav.style.display = originalNavDisplay;
-                                nav.style.position = originalNavPosition;
-                                nav.style.top = originalNavTop;
-                                nav.style.zIndex = originalNavZIndex;
-                                nav.style.backgroundColor = originalNavBackground;
-                                allDownloadButtons.forEach((btn, index) => {
-                                    btn.style.display = originalButtonDisplays[index];
-                                });
-                                if (profilePhotoContainer) {
-                                    profilePhotoContainer.style.display = originalPhotoDisplay;
-                                }
-                            });
-                        }, 200);
-                    }, 100);
-                });
-            });
-            
-            // Check if we should auto-download PDF (from URL parameter)
+            // Auto-download when arriving with ?download=true (e.g. from another page)
             const urlParams = new URLSearchParams(window.location.search);
             if (urlParams.get('download') === 'true') {
-                // Wait for html2pdf to load, then trigger download
+                window.history.replaceState({}, document.title, window.location.pathname);
                 function triggerDownload() {
                     if (typeof html2pdf !== 'undefined') {
-                        const downloadBtn = document.querySelector('.download-btn:not(#view-intro-video)');
-                        if (downloadBtn) {
-                            downloadBtn.click();
-                            // Remove the parameter from URL without reload
-                            window.history.replaceState({}, document.title, window.location.pathname);
-                        }
+                        runPDFDownload();
                     } else {
-                        // Wait a bit more if html2pdf isn't loaded yet
                         setTimeout(triggerDownload, 100);
                     }
                 }
                 setTimeout(triggerDownload, 500);
             }
-        });
+        }
+        
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initCVDownload);
+        } else {
+            initCVDownload();
+        }
     </script>
 </body>
 </html>

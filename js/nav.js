@@ -36,14 +36,14 @@
         }
     }
     
-    // Get current page to mark active link
+    // Get current page to mark active link (support both clean URLs and .html paths)
     const currentPath = window.location.pathname;
-    const currentPage = currentPath === '/' || currentPath === '/index.html' ? 'home' : 
-                       currentPath.includes('cv.html') ? 'cv' :
-                       currentPath.includes('photonik-metrics.html') ? 'photonik' :
-                       currentPath.includes('uber-carshare.html') ? 'uber' :
-                       currentPath.includes('newkirk-solar.html') ? 'solar' :
-                       currentPath.includes('community.html') ? 'community' : 'home';
+    const currentPage = (currentPath === '/' || currentPath === '/index.html' || currentPath === '') ? 'home' :
+                       (currentPath === '/cv' || currentPath.includes('cv.html')) ? 'cv' :
+                       (currentPath === '/photonik-metrics' || currentPath.includes('photonik-metrics')) ? 'photonik' :
+                       (currentPath === '/uber-carshare' || currentPath.includes('uber-carshare')) ? 'uber' :
+                       (currentPath === '/newkirk-solar' || currentPath.includes('newkirk-solar')) ? 'solar' :
+                       (currentPath === '/community' || currentPath.includes('community')) ? 'community' : 'home';
 
     // Navigation HTML
     const navHTML = `
@@ -77,10 +77,10 @@
             <div class="password-modal-content">
                 <h3>Private Pages Access</h3>
                 <p>Enter password to access private pages:</p>
-                <div class="password-input-group">
+                <form class="password-input-group" id="password-form" action="javascript:void(0)" method="post">
                     <input type="password" id="password-input" placeholder="Password" autocomplete="off">
                     <div class="password-error" id="password-error">Incorrect password. Please try again.</div>
-                </div>
+                </form>
                 <div class="private-pages-list">
                     <h4>Available Pages:</h4>
                     <ul id="private-pages-list"></ul>

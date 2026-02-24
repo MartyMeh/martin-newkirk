@@ -64,40 +64,7 @@
             font-size: 15px;
         }
         
-        .video-section {
-            margin-bottom: 50px;
-        }
-        
-        .video-container {
-            position: relative;
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto 30px;
-            background: #000;
-            border-radius: 8px;
-            overflow: hidden;
-            aspect-ratio: 16 / 9;
-        }
-        
-        .video-container video {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-        
-        .video-placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #f8f9fa;
-            color: #7f8c8d;
-            font-size: 14px;
-            border: 2px dashed #ecf0f1;
-        }
-        
-        .script-section {
+        .intro-section {
             background: #f8f9fa;
             padding: 30px;
             border-radius: 4px;
@@ -105,7 +72,7 @@
             margin-bottom: 40px;
         }
         
-        .script-section h2 {
+        .intro-section h2 {
             font-size: 20px;
             font-weight: 700;
             color: #1a1a1a;
@@ -114,7 +81,18 @@
             letter-spacing: 0.5px;
         }
         
-        .script-text {
+        .intro-photo {
+            float: right;
+            width: 260px;
+            height: auto;
+            border-radius: 4px;
+            object-fit: cover;
+            border: 2px solid #ecf0f1;
+            margin-left: 24px;
+            margin-bottom: 16px;
+        }
+        
+        .intro-text {
             font-size: 15px;
             line-height: 1.7;
             color: #444;
@@ -194,8 +172,18 @@
                 text-align: center;
             }
             
-            .script-section {
+            .intro-section {
                 padding: 20px;
+            }
+            
+            .intro-photo {
+                float: none;
+                display: block;
+                width: 100%;
+                max-width: 260px;
+                margin: 0 auto 20px;
+                margin-left: auto;
+                margin-right: auto;
             }
         }
         
@@ -227,37 +215,20 @@
     <header>
         <div class="header-content">
             <h1>Martin Newkirk</h1>
-            <div class="subtitle">Founder & Product Leader | Building in Clean Energy</div>
+            <div class="subtitle">Building and scaling in clean energy and transport</div>
         </div>
         <div class="header-cta">
             <a href="/cv.html" class="cta-link cta-link-secondary">View CV</a>
         </div>
     </header>
 
-    <div class="video-section">
-        <div class="video-container">
-            <video controls preload="metadata" poster="images/profile.jpg">
-                <source src="images/intro.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-    </div>
+    <div class="intro-section">
+        <img src="images/mn-2-long.jpeg" alt="Martin Newkirk" class="intro-photo">
+        <div class="intro-text">I'm a founder with over 10 years in product and operations across clean energy and transport. I help organisations move faster—whether that's 0→1 ventures, scaling operations, or shipping software.
 
-    <div class="script-section">
-        <h2>Video Script</h2>
-        <div class="script-text">Hi, I'm Marty—or Martin if you prefer.
+I built Photonik (solar design software used by 2,000+ installers globally) and Clean Energy Reviews (CER), an independent advice platform for consumer solar and battery decisions. I also helped scale Car Next Door from startup to Uber acquisition, leading product, strategy, and operations. Earlier, I ran Newkirk Solar Services, supporting small retailers with solar operations.
 
-I'm a founder and product leader with over 10 years building products in clean energy and transport. I specialise in helping organisations achieve their missions faster. By harnessing AI, we can do even more with less.
-
-I'm currently building Photonik as a side project — a professional solar design software used by 2,000+ installers globally from over 100 countries.
-
-Previously, I helped scale Car Next Door from startup through to Uber acquisition, leading product, strategy, and operations.
-
-I also created Clean Energy Reviews (CER), an independent advice platform helping thousands of consumers make confident solar decisions. And before that, Newkirk Solar Services—the first solar services business supporting small retailers with their operations. 
-
-I've maintained Photonik and CER for over 10 years alongside my full-time work. They've been valuable sandboxes for testing new tools and staying current with clean energy innovation.
-
-If you're building products in clean energy or operational efficiency, and looking for someone who ships products, not slides—let's talk.</div>
+I'm interested in interesting problems and teams—in clean energy, transport, or wherever product and operations can move the needle. If you're building something and want someone who ships—let's talk.</div>
     </div>
 
     <div class="cta-section">

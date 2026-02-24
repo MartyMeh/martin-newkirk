@@ -37,8 +37,30 @@
         .subtitle {
             font-size: 16px;
             color: #555;
-            margin-bottom: 40px;
+            margin-bottom: 24px;
             font-weight: 500;
+        }
+        
+        .interests-section {
+            margin-bottom: 40px;
+        }
+        
+        .interests-section p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 16px;
+        }
+        
+        .interests-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px 28px;
+            align-items: center;
+        }
+        
+        .interest-item {
+            font-size: 28px;
+            line-height: 1;
         }
         
         .photo-gallery {
@@ -104,22 +126,6 @@
             flex-shrink: 0;
         }
         
-        /* Image 3: full width at bottom - crop bottom third */
-        .photo-item.last-item {
-            grid-column: 1 / -1;
-            height: 400px;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .photo-item.last-item img {
-            object-fit: cover;
-            object-position: top;
-            width: 100%;
-            height: calc(100% - 50px); /* Subtract caption height */
-            flex-shrink: 0;
-        }
-        
         @media (max-width: 768px) {
             body {
                 padding: 30px 20px;
@@ -129,13 +135,16 @@
                 font-size: 28px;
             }
             
+            .interests-grid {
+                gap: 14px 20px;
+            }
+            
             .photo-gallery {
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
             
-            .photo-item.full-width,
-            .photo-item.last-item {
+            .photo-item.full-width {
                 grid-column: 1;
             }
             
@@ -149,9 +158,6 @@
                 height: 350px;
             }
             
-            .photo-item.last-item {
-                height: 280px;
-            }
         }
         
         @media (max-width: 480px) {
@@ -161,10 +167,6 @@
             
             .portrait-row .photo-item {
                 height: 280px;
-            }
-            
-            .photo-item.last-item {
-                height: 220px;
             }
         }
     </style>
@@ -176,6 +178,22 @@
         <h1>Community & Interests</h1>
         <div class="subtitle">Photos and involvement in the community</div>
     </header>
+
+    <section class="interests-section">
+        <p>Things I'm into:</p>
+        <div class="interests-grid">
+            <span class="interest-item">🏃</span>
+            <span class="interest-item">🧗</span>
+            <span class="interest-item">🏏</span>
+            <span class="interest-item">👨‍👩‍👧‍👦</span>
+            <span class="interest-item">👋</span>
+            <span class="interest-item">☕</span>
+            <span class="interest-item">☀️</span>
+            <span class="interest-item">🌊</span>
+            <span class="interest-item">🚲</span>
+            <span class="interest-item">⚡</span>
+        </div>
+    </section>
 
     <div class="photo-gallery">
         <!-- Photo 1 -->
@@ -197,12 +215,6 @@
                 <img src="images/community-4.jpg" alt="Family 2022">
                 <div class="photo-caption">Family 2022</div>
             </div>
-        </div>
-        
-        <!-- Photo 3 -->
-        <div class="photo-item last-item">
-            <img src="images/community-3.jpg" alt="Home climbing wall project 2024">
-            <div class="photo-caption">Home climbing wall project 2024</div>
         </div>
     </div>
     
