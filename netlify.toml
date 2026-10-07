@@ -28,6 +28,12 @@
   status = 200
   force = false
 
+[[redirects]]
+  from = "/private"
+  to = "/private.html"
+  status = 200
+  force = false
+
 # Handle all other routes
 [[redirects]]
   from = "/*"

@@ -121,21 +121,6 @@
             margin: 0 10px 10px;
         }
         
-        .home-private-lock {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 24px;
-            color: #7f8c8d;
-            padding: 10px;
-            transition: color 0.2s;
-            line-height: 1;
-        }
-        
-        .home-private-lock:hover {
-            color: #5496b3;
-        }
-        
         .cta-link:hover {
             background-color: #447a91;
         }
@@ -146,6 +131,23 @@
         
         .cta-link-secondary:hover {
             background-color: #b88035;
+        }
+
+        .home-contact {
+            margin-top: 28px;
+            font-size: 15px;
+            color: #555;
+        }
+
+        .home-contact a {
+            color: #5496b3;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .home-contact a:hover {
+            color: #447a91;
+            text-decoration: underline;
         }
         
         @media (max-width: 768px) {
@@ -202,9 +204,9 @@
                 align-items: center;
                 gap: 15px;
             }
-            
-            .home-private-lock {
-                margin-top: 10px;
+
+            .home-contact {
+                text-align: center;
             }
         }
     </style>
@@ -215,7 +217,7 @@
     <header>
         <div class="header-content">
             <h1>Martin Newkirk</h1>
-            <div class="subtitle">Building and scaling in clean energy and transport</div>
+            <div class="subtitle">Building and scaling in clean energy and mobility</div>
         </div>
         <div class="header-cta">
             <a href="/cv.html" class="cta-link cta-link-secondary">View CV</a>
@@ -233,9 +235,10 @@ I'm interested in interesting problems and teams—in clean energy, transport, o
 
     <div class="cta-section">
         <a href="/photonik-metrics.html" class="cta-link cta-link-secondary">View Photonik & CER</a>
-        <button class="home-private-lock" id="home-private-lock" aria-label="Private pages" title="Private pages">🔒</button>
     </div>
+
+    <p class="home-contact"><a href="mailto:martinnewkirk@gmail.com">martinnewkirk@gmail.com</a></p>
     
-    <script src="/js/nav.js?v=2"></script>
+    <script src="/js/nav.js?v=3"></script>
 </body>
 </html>
