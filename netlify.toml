@@ -5,6 +5,12 @@
   force = false
 
 [[redirects]]
+  from = "/cv-asset-management"
+  to = "/cv-asset-management.html"
+  status = 200
+  force = false
+
+[[redirects]]
   from = "/photonik-metrics"
   to = "/photonik-metrics.html"
   status = 200
