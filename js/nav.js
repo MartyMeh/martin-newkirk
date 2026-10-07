@@ -9,6 +9,15 @@
                        (currentPath === '/newkirk-solar' || currentPath.includes('newkirk-solar')) ? 'solar' :
                        (currentPath === '/community' || currentPath.includes('community')) ? 'community' : '';
 
+    const isAssetCv = currentPath.includes('cv-asset-management');
+    const cvPdf = isAssetCv
+        ? '/pdf/Martin-Newkirk-CV-Asset-Management.pdf'
+        : '/pdf/Martin-Newkirk-CV.pdf';
+
+    if (new URLSearchParams(window.location.search).get('download') === 'true') {
+        window.location.replace(cvPdf);
+    }
+
     // Navigation HTML
     const navHTML = `
         <div class="nav-container">
@@ -27,10 +36,10 @@
                 <li><a href="/uber-carshare.html" ${currentPage === 'uber' ? 'class="active"' : ''}>Uber Carshare</a></li>
                 <li><a href="/newkirk-solar.html" ${currentPage === 'solar' ? 'class="active"' : ''}>Newkirk Solar</a></li>
                 <li><a href="/community.html" ${currentPage === 'community' ? 'class="active"' : ''}>Interests</a></li>
-                <li><a href="#" class="download-btn">Download PDF CV</a></li>
+                <li><a href="${cvPdf}" class="download-btn" download>Download PDF CV</a></li>
             </ul>
             <div class="nav-download">
-                <a href="#" class="download-btn">Download PDF CV</a>
+                <a href="${cvPdf}" class="download-btn" download>Download PDF CV</a>
             </div>
         </div>
     `;
@@ -77,21 +86,6 @@
             });
         }
 
-        // Handle download button clicks (excluding the video button)
-        // Only redirect if we're not already on the CV page (let CV page handle its own download)
-        const downloadBtns = document.querySelectorAll('.download-btn:not(#view-intro-video)');
-        const isOnCVPage = currentPath.includes('cv.html');
-        
-        if (!isOnCVPage) {
-            // Only attach redirect handlers if we're NOT on the CV page
-            downloadBtns.forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    // Navigate to CV page with download parameter
-                    window.location.href = '/cv.html?download=true';
-                });
-            });
-        }
     }
 
     // Initialize when DOM is ready

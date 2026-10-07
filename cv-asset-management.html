@@ -288,22 +288,40 @@
             }
         }
         
+        @page {
+            size: A4;
+            margin: 14mm 16mm;
+        }
+        
         @media print {
             body {
-                padding: 15px;
+                padding: 0;
+                max-width: none;
+                line-height: 1.55;
             }
             
-            nav {
+            nav, .download-btn, .summary-photo {
                 display: none;
             }
             
-            .download-btn {
-                display: none;
+            header {
+                margin-bottom: 18px;
+                padding-bottom: 12px;
             }
             
-            .summary-photo img {
-                width: 150px;
-                height: auto;
+            h1 {
+                font-size: 32px;
+                margin-bottom: 6px;
+            }
+            
+            .subtitle {
+                font-size: 14px;
+                margin-bottom: 10px;
+            }
+            
+            .contact {
+                font-size: 13px;
+                line-height: 1.6;
             }
             
             .contact a {
@@ -311,41 +329,89 @@
                 text-decoration: none;
             }
             
+            h2 {
+                font-size: 18px;
+                margin-bottom: 12px;
+                padding-bottom: 4px;
+            }
+            
             .section {
-                margin-bottom: 25px;
+                margin-bottom: 22px;
             }
             
-            .two-column {
-                margin-bottom: 15px;
-                gap: 20px;
+            .summary {
+                font-size: 14px;
+                line-height: 1.55;
             }
             
-            .two-column .section {
-                margin-bottom: 15px;
-            }
-            
-            .two-column .section h2 {
-                margin-bottom: 10px;
-            }
-            
-            .skill-group, .language-group {
-                margin-bottom: 6px;
+            .summary + .summary {
+                margin-top: 10px !important;
             }
             
             .job {
-                margin-bottom: 20px;
+                margin-bottom: 18px;
             }
             
-            .education-item {
+            .job-header {
                 margin-bottom: 6px;
+                break-inside: avoid;
+                break-after: avoid;
             }
             
-            .section[style*="margin-bottom: 25px"] {
-                margin-bottom: 20px !important;
+            .company {
+                font-size: 16px;
             }
             
-            .section[style*="margin-bottom: 20px"] {
-                margin-bottom: 15px !important;
+            .role {
+                font-size: 14px;
+            }
+            
+            .date-location {
+                font-size: 13px;
+                margin-top: 2px;
+            }
+            
+            .job ul {
+                margin-top: 8px;
+            }
+            
+            .job li {
+                margin-bottom: 6px;
+                font-size: 13.5px;
+                line-height: 1.5;
+                break-inside: avoid;
+            }
+            
+            .continuation {
+                margin-top: 12px;
+                padding-top: 10px;
+                break-inside: avoid;
+            }
+            
+            .section:has(.education-item) {
+                break-inside: avoid;
+            }
+            
+            .education-item, .skill-group, .language-group {
+                font-size: 13.5px;
+                margin-bottom: 6px;
+                line-height: 1.45;
+            }
+            
+            .two-column {
+                margin-bottom: 0;
+                gap: 24px;
+                grid-template-columns: 1fr 1fr !important;
+            }
+            
+            .two-column .section,
+            .section[style*="margin-bottom"] {
+                margin-bottom: 16px !important;
+            }
+            
+            .two-column .section h2,
+            h2[style] {
+                margin-bottom: 10px !important;
             }
         }
     </style>
@@ -539,110 +605,6 @@
         </section>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    <script src="/js/nav.js?v=3"></script>
-    <script>
-        function runPDFDownload() {
-            const nav = document.querySelector('nav');
-            const allDownloadButtons = document.querySelectorAll('.download-btn');
-            const profilePhotoContainer = document.querySelector('.summary-photo');
-            
-            if (!nav) { console.log('[CV] No nav found, aborting'); return; }
-            if (typeof html2pdf === 'undefined') { console.log('[CV] html2pdf not loaded yet'); return; }
-            
-            // Store original display/styles
-            const originalNavDisplay = nav.style.display;
-            const originalNavPosition = nav.style.position;
-            const originalNavTop = nav.style.top;
-            const originalNavZIndex = nav.style.zIndex;
-            const originalNavBackground = nav.style.backgroundColor;
-            const originalButtonDisplays = Array.from(allDownloadButtons).map(btn => btn.style.display);
-            const originalPhotoDisplay = profilePhotoContainer ? profilePhotoContainer.style.display : '';
-            
-            // Hide elements and remove sticky positioning for PDF
-            nav.style.display = 'none';
-            nav.style.position = 'static';
-            nav.style.top = 'auto';
-            nav.style.zIndex = 'auto';
-            nav.style.backgroundColor = 'transparent';
-            allDownloadButtons.forEach(btn => btn.style.display = 'none');
-            if (profilePhotoContainer) {
-                profilePhotoContainer.style.display = 'none';
-            }
-            
-            document.body.classList.add('pdf-export');
-            const element = document.body;
-            
-            setTimeout(function() {
-                window.scrollTo(0, 0);
-                setTimeout(function() {
-                    const opt = {
-                        margin: [12, 15, 15, 15],
-                        filename: 'Martin-Newkirk-CV.pdf',
-                        image: { type: 'jpeg', quality: 0.98 },
-                        html2canvas: { scale: 2, useCORS: true, logging: false, windowWidth: window.innerWidth, windowHeight: window.innerHeight, scrollX: 0, scrollY: 0 },
-                        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-                        pagebreak: { mode: ['avoid-all', 'css'] }
-                    };
-                    console.log('[CV] Starting PDF generation');
-                    html2pdf().set(opt).from(element).save().then(function() {
-                        console.log('[CV] PDF download complete');
-                        document.body.classList.remove('pdf-export');
-                        nav.style.display = originalNavDisplay;
-                        nav.style.position = originalNavPosition;
-                        nav.style.top = originalNavTop;
-                        nav.style.zIndex = originalNavZIndex;
-                        nav.style.backgroundColor = originalNavBackground;
-                        allDownloadButtons.forEach((btn, index) => { btn.style.display = originalButtonDisplays[index]; });
-                        if (profilePhotoContainer) profilePhotoContainer.style.display = originalPhotoDisplay;
-                    }).catch(function(error) {
-                        console.error('PDF generation error:', error);
-                        document.body.classList.remove('pdf-export');
-                        nav.style.display = originalNavDisplay;
-                        nav.style.position = originalNavPosition;
-                        nav.style.top = originalNavTop;
-                        nav.style.zIndex = originalNavZIndex;
-                        nav.style.backgroundColor = originalNavBackground;
-                        allDownloadButtons.forEach((btn, index) => { btn.style.display = originalButtonDisplays[index]; });
-                        if (profilePhotoContainer) profilePhotoContainer.style.display = originalPhotoDisplay;
-                    });
-                }, 200);
-            }, 100);
-        }
-        
-        function initCVDownload() {
-            console.log('[CV] initCVDownload ran, html2pdf:', typeof html2pdf);
-            
-            // Use capture phase so we run before nav or other handlers; catch any click on .download-btn
-            document.addEventListener('click', function(e) {
-                var link = e.target.closest && e.target.closest('a.download-btn');
-                if (!link) return;
-                e.preventDefault();
-                e.stopPropagation();
-                console.log('[CV] Download PDF clicked (delegated)');
-                runPDFDownload();
-            }, true);
-            
-            // Auto-download when arriving with ?download=true (e.g. from another page)
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('download') === 'true') {
-                window.history.replaceState({}, document.title, window.location.pathname);
-                function triggerDownload() {
-                    if (typeof html2pdf !== 'undefined') {
-                        runPDFDownload();
-                    } else {
-                        setTimeout(triggerDownload, 100);
-                    }
-                }
-                setTimeout(triggerDownload, 500);
-            }
-        }
-        
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initCVDownload);
-        } else {
-            initCVDownload();
-        }
-    </script>
+    <script src="/js/nav.js?v=4"></script>
 </body>
 </html>
