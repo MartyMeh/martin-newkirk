@@ -62,7 +62,7 @@
                 <li><a href="/photonik-metrics.html" ${currentPage === 'photonik' ? 'class="active"' : ''}>Photonik & CER</a></li>
                 <li><a href="/uber-carshare.html" ${currentPage === 'uber' ? 'class="active"' : ''}>Uber Carshare</a></li>
                 <li><a href="/newkirk-solar.html" ${currentPage === 'solar' ? 'class="active"' : ''}>Newkirk Solar</a></li>
-                <li><a href="/community.html" ${currentPage === 'community' ? 'class="active"' : ''}>Community</a></li>
+                <li><a href="/community.html" ${currentPage === 'community' ? 'class="active"' : ''}>Interests</a></li>
                 <li><a href="#" class="download-btn">Download PDF CV</a></li>
             </ul>
             <div class="nav-download">

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
     <meta name="googlebot" content="noindex, nofollow">
-    <title>Community & Interests - Martin Newkirk</title>
+    <title>Interests - Martin Newkirk</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="stylesheet" href="/css/nav.css">
@@ -62,12 +62,97 @@
             font-size: 28px;
             line-height: 1;
         }
+
+        .writing-section {
+            margin: 48px 0 10px;
+        }
+
+        .writing-section h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 28px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #ecf0f1;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .poem {
+            margin-bottom: 40px;
+        }
+
+        .poem h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+        }
+
+        .poem p {
+            font-size: 15px;
+            line-height: 1.75;
+            color: #444;
+            margin-bottom: 16px;
+        }
+
+        .reading-label {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 8px 0 12px;
+        }
+
+        .reading-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 28px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 32px;
+        }
+
+        .reading-list li {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 18px;
+        }
+
+        .reading-list .book-title {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .book-synopsis {
+            display: block;
+            margin-top: 2px;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #555;
+            font-weight: 400;
+        }
+
+        .book-reaction {
+            display: block;
+            margin-top: 6px;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #1a1a1a;
+            font-style: italic;
+        }
+
+        .author-line {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #444;
+        }
         
         .photo-gallery {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 30px;
-            margin-top: 40px;
+            margin-top: 0;
         }
         
         .photo-item {
@@ -138,6 +223,10 @@
             .interests-grid {
                 gap: 14px 20px;
             }
+
+            .reading-list {
+                grid-template-columns: 1fr;
+            }
             
             .photo-gallery {
                 grid-template-columns: 1fr;
@@ -175,8 +264,8 @@
     <div id="nav-placeholder"></div>
     
     <header>
-        <h1>Community & Interests</h1>
-        <div class="subtitle">Photos and involvement in the community</div>
+        <h1>Interests</h1>
+        <div class="subtitle">Reading, poems, photos, and things I'm into</div>
     </header>
 
     <section class="interests-section">
@@ -184,6 +273,7 @@
         <div class="interests-grid">
             <span class="interest-item">🏃</span>
             <span class="interest-item">🧗</span>
+            <span class="interest-item">🎾</span>
             <span class="interest-item">🏏</span>
             <span class="interest-item">👨‍👩‍👧‍👦</span>
             <span class="interest-item">👋</span>
@@ -195,7 +285,73 @@
         </div>
     </section>
 
-    <div class="photo-gallery">
+    <section class="writing-section">
+        <h2>Reading</h2>
+        <h3 class="reading-label">Books</h3>
+        <ul class="reading-list">
+            <li><span class="book-title">The Inner Game of Tennis</span> — Timothy Gallwey<span class="book-synopsis">Performance improves when you quiet the judging voice in your head and trust the body that already knows how to play.</span><span class="book-reaction">My introduction to sports psychology, and how I learnt to enjoy sport and work while performing better as well.</span></li>
+            <li><span class="book-title">Born to Run</span> — Christopher McDougall<span class="book-synopsis">A journalist goes looking for a hidden tribe of Mexican runners and finds what human bodies were built to do.</span><span class="book-reaction">A real page-turner. It also got me back into running, and into how our bodies and feet actually work.</span></li>
+            <li><span class="book-title">Tell Me Why</span> — Archie Roach<span class="book-synopsis">A memoir of the Stolen Generations, music, grief, and the long way back to family, country, and self.</span><span class="book-reaction">A beautiful, and at times hard, book. A must-read for Australians, in my opinion.</span></li>
+            <li><span class="book-title">How Much Land Does a Man Need?</span> — Tolstoy<span class="book-synopsis">A peasant is offered all the land he can circle in a day, and he walks until the gift costs him everything.</span><span class="book-reaction">I enjoyed the picture of Russian peasant life in the 19th century as much as the moral lesson.</span></li>
+            <li><span class="book-title">Catch-22</span> — Joseph Heller<span class="book-synopsis">A bomber pilot tries to get grounded, and the rule that would save him is the rule that keeps him flying.</span><span class="book-reaction">Just hilarious.</span></li>
+            <li><span class="book-title">Steve Jobs</span> — Walter Isaacson<span class="book-synopsis">The story of a founder who made beautiful products, hurt people, and changed how the world uses technology.</span><span class="book-reaction">An absolutely fascinating man. I couldn't put this one down.</span></li>
+            <li><span class="book-title">Good Strategy/Bad Strategy</span> — Richard Rumelt<span class="book-synopsis">Most plans are goals in disguise. Real strategy names the problem, makes a choice, and says no to the rest.</span><span class="book-reaction">A really good breakdown of what a strategy actually is, which is often misunderstood, and how to create one.</span></li>
+            <li><span class="book-title">The Rock Warrior's Way</span> — Arno Ilgner<span class="book-synopsis">A climber's guide to fear: notice it, stop fighting it, and keep moving when the exposure is real.</span><span class="book-reaction">Similar to the Inner Game books. The art of enjoying the climbing, and performing on the rock.</span></li>
+            <li><span class="book-title">Kitchen Confidential</span> — Anthony Bourdain<span class="book-synopsis">Bourdain's raw account of restaurant life: long nights, bad habits, and the crews who hold a service together.</span><span class="book-reaction">I love the way this guy wrote and thought. It took me back to my hospitality days, though mine weren't as interesting.</span></li>
+            <li><span class="book-title">Shoe Dog</span> — Phil Knight<span class="book-synopsis">Phil Knight's memoir of building Nike from a car boot and a stubborn idea into a global company.</span><span class="book-reaction">A real page-turner, and a great story of vision and grit.</span></li>
+            <li><span class="book-title">Radical Candor</span> — Kim Scott<span class="book-synopsis">Care personally and challenge directly, so hard feedback comes from someone who wants you to succeed.</span><span class="book-reaction">Along with Crucial Conversations, this really helped me communicate directly, with empathy and passion.</span></li>
+            <li><span class="book-title">Crucial Conversations</span> — Kerry Patterson, Joseph Grenny, Ron McMillan, and Al Switzler<span class="book-synopsis">How to stay in a hard talk when the stakes are high, opinions clash, and emotions are already up.</span><span class="book-reaction">I saw these conversations first hand at Car Next Door. When people speak directly, openly, and without ego, they eventually land on the same page and move forward together.</span></li>
+            <li><span class="book-title">The Obstacle Is the Way</span> — Ryan Holiday<span class="book-synopsis">A stoic field guide: the thing in your way is the work, and the way through is to use it.</span><span class="book-reaction">Sometimes we need a little stoicism. This one didn't resonate with me hugely, but there were interesting takeaways. I'm not sure the obstacle is always the way.</span></li>
+            <li><span class="book-title">Buffettology</span> — Mary Buffett and David Clark<span class="book-synopsis">A plain-language walk through how Buffett decides a business is worth owning, then holds it for years.</span><span class="book-reaction">What a legend. I just love Warren Buffett and how he thinks. Great advice for investing, and for life.</span></li>
+            <li><span class="book-title">How I Built This</span> — Guy Raz<span class="book-synopsis">Founders tell how their companies actually started: the accidents, the near-failures, and the stubborn next step.</span><span class="book-reaction">Along with his podcast, these are exceptional tales of vision, passion, grit, perseverance, and the art of persuasion.</span></li>
+            <li><span class="book-title">How Brands Grow</span> — Byron Sharp<span class="book-synopsis">Brands grow by being easy to buy and remembered by many people, not by chasing a loyal few.</span><span class="book-reaction">The marketing bible. Worth understanding.</span></li>
+            <li><span class="book-title">Creativity, Inc.</span> — Ed Catmull<span class="book-synopsis">How Pixar protects good ideas: candour, trust, and a culture willing to say the work is not there yet.</span><span class="book-reaction">A great guide to how to be creative. We are all creative, but there is a process that lets creativity flow.</span></li>
+            <li><span class="book-title">The Everything Store</span> — Brad Stone<span class="book-synopsis">How Jeff Bezos built Amazon through customer obsession, relentless scale, and a will to own the next market.</span><span class="book-reaction">The takeaway is the vision, and the long game. Start with a small online bookshop and turn it into the world's largest retailer. Don't sweat thin profits for 15 years, and ignore the outside pressure, while you build the big picture.</span></li>
+            <li><span class="book-title">Bad Blood</span> — John Carreyrou<span class="book-synopsis">The rise and exposure of Theranos: a blood test that never worked, and a founder too many powerful people believed.</span><span class="book-reaction">The most fascinating business book I have read. It reads like a thriller, and somehow it is real. I still can't quite believe it. A modern "the emperor has no clothes."</span></li>
+            <li><span class="book-title">The Intelligent Investor</span> — Benjamin Graham<span class="book-synopsis">Graham's classic on buying a business for less than it is worth, and refusing to be ruled by the market's mood.</span><span class="book-reaction">If it's good enough for Buffett, it's good enough for me. An interesting look at the psychology of investing.</span></li>
+            <li><span class="book-title">The Hard Thing About Hard Things</span> — Ben Horowitz<span class="book-synopsis">A founder on the jobs nobody prepares you for: firing people, living with fear, and choosing when every option is bad.</span></li>
+            <li><span class="book-title">Sapiens</span> — Yuval Noah Harari<span class="book-synopsis">A brief history of humankind: how stories, farming, and shared myths let our species cooperate and take over the planet.</span><span class="book-reaction">A man with a unique insight into our world, and our future.</span></li>
+        </ul>
+        <h3 class="reading-label">Authors</h3>
+        <p class="author-line">Michael Pollan, Esther Perel, George Orwell, Alain de Botton, Isabel Allende, Thomas Piketty, Warren Buffett</p>
+    </section>
+
+    <section class="writing-section">
+        <h2>Writing</h2>
+
+        <article class="poem">
+            <h3>Where I’ll be</h3>
+            <p>We wake and we are not ready to be people. Not yet, we say, not before coffee, and the morning waits, quietly, while we look for our phones.</p>
+            <p>We drive. The traffic stops. We grip the wheel, furious about being held here, now, between the home we rushed to leave and the job we can't wait to finish. On the radio a voice is singing if you need me you know where I'll be. We change the station.</p>
+            <p>Monday we grind through. Wednesday we tell each other we're halfway. Friday we're almost happy, and the weekend passes like a station we don't stop at, and Sunday night we lie awake dreading the week we'll spend dreading the week.</p>
+            <p>Once, at a red light, between songs, the car goes quiet, and something almost — then the light turns green.</p>
+            <p>We book the holiday a year out and cross off the days like a sentence, and on the beach, day two, the end of it brushes past us. We push it down — we're here to relax — and it stays down, the way pushed things stay down, until the last two days, which it takes whole.</p>
+            <p>We buy the bigger house and fill it. We eat past full, because fast is how we eat, then drive to the gym to burn off what we ate to fill the hole, then eat. This is insane. We call it being good.</p>
+            <p>And all we want, by the end of any day, is rest. Not each other. Not purpose. We're too far behind for those. Rest first, we say — then we'll get to the rest of it. So we sit, and the television talks until we sleep, and when it stops, that silence, for a second, before we reach for the remote —</p>
+            <p>And at the end of it, the long rest we promised ourselves. No alarm. No boss. Nothing between us and all the time in the world. And we cannot sit in it. We never learned. Nothing, it turns out, takes practice, and we practiced everything else. So we fill it — the cruise, the wine, the little jobs — and we miss the work we wished away.</p>
+            <p>And all this time the song is stuck in our heads. We hum it in the car, in queues, at the sink: if you need me you know where I'll be.</p>
+        </article>
+
+        <article class="poem">
+            <h3>Everywhen</h3>
+            <p>If you need me you know where I'll be. You look for me in the things you buy. I'm not in them. I'm not in the wanting either. I watch the boxes arrive. I watch the rooms fill up and the hole stay open. The hole was never the shape of anything you ordered.</p>
+            <p>You look for me in food. You eat fast, faster than the body can answer, and get up from the table still hungry. You have a saying: focus on the donut, not the hole. And you have. Faithfully. But I am the hole. I'm what the sweetness goes around.</p>
+            <p>You look for me at some other time. Not now — you're quite sure it isn't now. You know how the days go. The coffee, the traffic, the week you lean out of, the weekend you fret away from Sunday lunch.</p>
+            <p>And the big rest at the end, the one you're saving for — I've watched you arrive there. The days finally open, and there's nothing between us but the hours. And you can't sit in them. You never practiced.</p>
+            <p>You were afraid of forever. I know. The floating in the dark, the clock that never stops. There's no clock here. Eternity isn't a long time. It isn't a time.</p>
+            <p>So where am I. Not in the noise — though I've got nothing against the noise. I'm the quiet inside it. The gap between two thoughts. You pass that gap ten thousand times a day, carrying your name, your plans, your grievances. You never look in.</p>
+            <p>I'm in the body you drive around like a car. Under all the thinking there's a hum. That's me. You're so rarely home.</p>
+            <p>I'm the space that holds the furniture. The nothing, you call it. It holds everything. Every night you fall asleep and come to me and remember none of it, and get up, and call it rest. At the end you'll come the same way. You won't be lost. The wave isn't lost when it lies back in the water.</p>
+            <p>I don't want anything from you. I know that's hard — you've been taught that everything wants something. I don't miss you. The sea doesn't miss the wave. Missing needs distance. There isn't any.</p>
+            <p>Be still. Even for a second, between two breaths. Not as one more thing to get right. More the way a field, at dusk, lets down its light.</p>
+            <p>I'm not hiding. I never have been. It's just that stillness can't be bought or hurried, and you've been busy, and the shops were open.</p>
+            <p>Before the wanting, after the wanting — if you need me you know where I'll be.</p>
+        </article>
+    </section>
+
+    <section class="writing-section">
+        <h2>Photos</h2>
+        <div class="photo-gallery">
         <!-- Photo 1 -->
         <div class="photo-item full-width">
             <img src="images/community-1.jpg" alt="Strongroom CC Devon tour 2025">
@@ -216,9 +372,10 @@
                 <div class="photo-caption">Family 2022</div>
             </div>
         </div>
-    </div>
+        </div>
+    </section>
     
-    <script src="/js/nav.js"></script>
+    <script src="/js/nav.js?v=2"></script>
 </body>
 </html>
 
