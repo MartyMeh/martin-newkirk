@@ -301,15 +301,386 @@
                 background-color: transparent;
             }
         }
+        .full-script { margin-top: 12px; }
+        .full-script summary { cursor: pointer; font-weight: 600; font-size: 14px; }
+        .full-script p { margin: 8px 0; }
+        .full-script .script-note { font-size: 13px; opacity: 0.85; }
+        .everlab-map { width: 100%; border-collapse: collapse; font-size: 14px; }
+        .everlab-map td, .everlab-map th { padding: 6px 8px; border-bottom: 1px solid rgba(128,128,128,0.25); text-align: left; }
     </style>
 </head>
 <body>
     <div id="nav-placeholder"></div>
     
     <h1>Interview Examples - STAR Format</h1>
-    <div class="subtitle">Primary and Secondary Examples for Ofgem Interview Reference</div>
+    <div class="subtitle">Everlab is first. Ofgem examples follow.</div>
 
     <p style="margin-bottom: 20px;"><strong>Tailored CVs:</strong> <a href="/cv-asset-management.html">Asset management (renewables)</a></p>
+
+    <div class="quick-reference" id="everlab">
+        <h2>Everlab — Senior Product Manager, Access</h2>
+        <p style="margin-bottom: 16px; font-size: 14px;"><strong>Cover letter:</strong> <a href="/Docs/Everlab-Cover-Letter.md">Markdown</a> · <a href="https://claude.ai/code/artifact/b66d936f-df64-49ff-8b9d-4d20b4647c39">Doc (export to PDF)</a>. Senior Product Manager, Access. Each answer runs about two minutes spoken. They're written in the first person so you can rehearse them as they are. Square brackets mark the places where you need to add a detail or make a decision before the interview. Open “Full script” under each story for the full version.</p>
+        <h3 style="margin: 12px 0 8px;">What the ad asks for, and which story answers it</h3>
+        <table class="everlab-map"><thead><tr><th>The ad asks for</th><th>Story</th></tr></thead><tbody><tr><td>Owning a customer journey across organisations you don't control</td><td>1. Key Swap</td></tr><tr><td>Sizing problems from messy data and defending the findings</td><td>2. SEO or checkout</td></tr><tr><td>Running several workstreams with clear trade-offs</td><td>3. December 2018 thefts</td></tr><tr><td>External negotiation</td><td>4. Hyundai</td></tr><tr><td>Operational changes that persisted after launch</td><td>5. Key Swap, after launch</td></tr><tr><td>Deciding between automation and people and process</td><td>6. AFCA complaints</td></tr><tr><td>6+ years in product</td><td>7. Background</td></tr><tr><td>Partner networks, and what you're working on now</td><td>8. Photonik marketplace, Philippines</td></tr></tbody></table>
+        <p style="margin: 12px 0 16px; font-size: 14px;">Tell each story once. Stories 1 and 5 are both Key Swap: 1 is the decision and the launch, and 5 is what happened afterwards. If you've already told 1, open story 5 with "Coming back to Key Swap…" and skip the setup.</p>
+        <ul>
+            <li><a href="#everlab-1" class="example-link">1. A journey across organisations you don't control</a> — Key Swap, the launch</li>
+            <li><a href="#everlab-2" class="example-link">2. Sizing a problem from messy data, and defending it</a> — SEO or checkout</li>
+            <li><a href="#everlab-3" class="example-link">3. Several workstreams, clear trade-offs</a> — December 2018 thefts</li>
+            <li><a href="#everlab-4" class="example-link">4. External negotiation</a> — Hyundai</li>
+            <li><a href="#everlab-5" class="example-link">5. An operational change that persisted</a> — Key Swap, after launch</li>
+            <li><a href="#everlab-6" class="example-link">6. When to automate, and when to use people and process</a> — AFCA complaints</li>
+            <li><a href="#everlab-7" class="example-link">7. Your background, and the "6+ years"</a> — Product years, exactly</li>
+            <li><a href="#everlab-8" class="example-link">8. What you&#x27;re working on now</a> — Photonik marketplace, Philippines</li>
+        </ul>
+    </div>
+
+    <div class="table-container" id="everlab-answers">
+        <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>What they are asking, and the setup</th>
+                    <th>What to say</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="everlab-1">
+                    <td class="example-number">1</td>
+                    <td>
+                        <div class="column-section">
+                            <div class="title-info">A journey across organisations you don't control</div>
+                            <div class="title-meta">Key Swap, 2020–2021 · Product Manager, Car Next Door</div>
+                        </div>
+                        <div class="column-section">
+                            <span class="star-label">Setup</span>
+                            <div class="star-content">A trip was the product, and almost nobody who made it happen worked for us. Instant Key needed a full installation before any car could join, which capped supply.</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="column-section">
+                            <span class="star-label">What to say</span>
+                            <div class="star-content">
+                                <ul>
+                                    <li>Owner had to list and keep the car available, borrower had to turn up, installer had to fit hardware, key had to be where the car was. Any one failing, and the trip quietly didn't happen.</li>
+                                    <li>I led Key Swap, a second way to join. No installation, and owner and borrower swapped the key in person. Each trip got harder, on purpose.</li>
+                                    <li>The bet: far more owners, then move the good ones to Instant Key and take the weak ones off.</li>
+                                    <li>New onboarding, booking flow and admin tools, with product, engineering, design and ops. Owners self-onboarded, and the install team posted kits.</li>
+                                    <li>Owner signups rose sharply. At the Uber acquisition: 10,000 cars, 60% on Key Swap.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <details class="full-script">
+                            <summary>Full script</summary>
+                            <div class="star-content">
+<p>At Car Next Door a completed trip was the product, and almost none of the people who made it happen worked for us. An owner had to list the car and keep it available, a borrower had to turn up, an installer had to fit hardware, and the key had to be where the car was. If any one of those failed, the trip just didn't happen, often without anyone telling us.</p>
+<p>The original model was Instant Key. Every car got a full in-car installation, with the key in a lockbox on the vehicle. Borrowers loved it, but it meant no car could join until a technician had been out, and that capped how fast we could grow supply.</p>
+<p>I led Key Swap, a second way to join. The owner signed up without an installation, and the owner and borrower exchanged the key in person. We knew that made each trip harder. The bet was that it would bring on far more owners, and that we could then move the good ones to Instant Key and take the weak ones off.</p>
+<p>It was a big build for a small company: new onboarding, a new booking flow and new admin tools, delivered by product, engineering, design and operations together. It also changed the operation. Owners onboarded themselves instead of going through sales, and the installation team moved from fitting every car to posting kits.</p>
+<p>Owner signups rose sharply. By the time Uber acquired the business, the platform had 10,000 cars and 60% of them were on Key Swap.</p>
+                            </div>
+                        </details>
+                    </td>
+                </tr>
+                <tr id="everlab-2">
+                    <td class="example-number">2</td>
+                    <td>
+                        <div class="column-section">
+                            <div class="title-info">Sizing a problem from messy data, and defending it</div>
+                            <div class="title-meta">SEO or checkout, 2018 · First PM, Growth</div>
+                        </div>
+                        <div class="column-section">
+                            <div class="relevance"><span class="relevance-label">Fill in:</span>This answer is soft without a figure. Add leads a month, conversion or checkout drop-off if you recall any. If not, say the call rested on timing. Don't invent someone who disagreed.</div>
+                        </div>
+                        <div class="column-section">
+                            <span class="star-label">Setup</span>
+                            <div class="star-content">Capacity for one major bet that quarter. SEO would bring more people in, and checkout would convert more of the people already arriving.</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="column-section">
+                            <span class="star-label">What to say</span>
+                            <div class="star-content">
+                                <ul>
+                                    <li>Data wasn't clean. I used existing SEO leads and their conversion, asked search people about the upside and how long it would take, and went through checkout drop-off with the designer.</li>
+                                    <li>Checkout had the quicker, visible payoff, and that was its case. My counter was timing. Search compounds, so every quarter waiting is growth you can't get back.</li>
+                                    <li>A checkout fix is worth more once more people come through the funnel.</li>
+                                    <li>The question wasn't which was better. It was which one lost more by waiting. We did SEO, then checkout, and I ran the checkout A/B tests.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <details class="full-script">
+                            <summary>Full script</summary>
+                            <div class="star-content">
+<p>In 2018 I was Car Next Door's first product manager, working on growth. We had capacity for one major bet that quarter: SEO, or a rebuild of checkout. Both promised free growth. SEO would bring more people in, and checkout would convert more of the people already arriving.</p>
+<p>None of the data was clean. I worked from the SEO leads we were already getting and how they converted [add the numbers if you remember them]. I asked people who knew search what the upside was and, more importantly, how long it would take to show. And I went through the checkout flow with our designer to see where people were dropping out [add the drop-off figure if you have it].</p>
+<p>My recommendation to the leadership team was SEO first. Checkout had the quicker, more visible payoff, and that was the argument for it. My argument against was timing. Search compounds, so every quarter we waited was growth we couldn't get back. A checkout fix would also be worth more once more people were coming through the funnel. So the question wasn't which was better. It was which one lost more by waiting.</p>
+<p>We did SEO, then checkout, and I ran the checkout A/B tests that followed.</p>
+<p class="script-note"><strong>Note:</strong> Without a number, this answer is soft. If you can recall even a rough figure, such as leads a month, conversion rate or checkout drop-off, use it. If you can't, say so: "I was working from partial data, and the decision rested on timing more than on size." Don't invent someone who disagreed with you.</p>
+                            </div>
+                        </details>
+                    </td>
+                </tr>
+                <tr id="everlab-3">
+                    <td class="example-number">3</td>
+                    <td>
+                        <div class="column-section">
+                            <div class="title-info">Several workstreams, clear trade-offs</div>
+                            <div class="title-meta">December 2018 · About 600 cars, not profitable</div>
+                        </div>
+                        <div class="column-section">
+                            <div class="relevance"><span class="relevance-label">If asked which project:</span>You don't recall the exact one, only that the growth roadmap stopped. Don't name one.</div>
+                        </div>
+                        <div class="column-section">
+                            <span class="star-label">Setup</span>
+                            <div class="star-content">Cars being stolen, and we paid for each one. Two or three a week, close to 2% of the fleet a month. A runway problem, not an ops problem.</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="column-section">
+                            <span class="star-label">What to say</span>
+                            <div class="star-content">
+                                <ul>
+                                    <li>Late-night meeting with the CEO and fleet team. We paused the growth roadmap overnight. No point adding owners if we couldn't keep their cars.</li>
+                                    <li>That week: I flew to Melbourne with one teammate, bought steering wheel locks, and fitted them with our installers to the riskiest cars.</li>
+                                    <li>Next: lockbox off the car where possible, reachable only after booking. Trade-off: borrowers wanted the key on the car, and that was what was being targeted.</li>
+                                    <li>Later: stronger brackets that couldn't be cut, as theft methods changed.</li>
+                                    <li>By January, below two a month. The lesson: decide what stops before what starts, and give the first fix a deadline in days.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <details class="full-script">
+                            <summary>Full script</summary>
+                            <div class="star-content">
+<p>In December 2018 we had about 600 cars and weren't profitable, and cars started being stolen in Melbourne. When a car was stolen, we paid for it. We were losing two or three a week, which is close to 2% of the fleet a month. At that rate it was a runway problem, not an operations problem.</p>
+<p>We had a late-night meeting with the chief executive and the fleet team, and I was part of the decision about what to stop. We paused the growth roadmap that was in flight, overnight. There was no point bringing in more owners if we couldn't keep their cars.</p>
+<p>Then we split the response into what had to happen that week and what could follow. That week, I flew to Melbourne with one teammate, we bought steering wheel locks, and we worked with our Melbourne installers to fit them to the cars most at risk. Next, where it was possible, we moved the lockbox off the car, to somewhere a borrower could reach only after booking. That was a real trade-off. Borrowers wanted the key on the car, and the key on the car was what was being targeted. Later came stronger lockbox brackets that couldn't be cut, because the method of theft kept changing.</p>
+<p>By January we were below two thefts a month, and growth work picked up again.</p>
+<p>What I'd take from it into Access: decide what stops before deciding what starts, and give the first fix a deadline in days, not a project plan.</p>
+<p class="script-note"><strong>Note:</strong> If they ask which growth project was paused, say you don't recall the exact project, only that the whole roadmap stopped. Don't name one.</p>
+                            </div>
+                        </details>
+                    </td>
+                </tr>
+                <tr id="everlab-4">
+                    <td class="example-number">4</td>
+                    <td>
+                        <div class="column-section">
+                            <div class="title-info">External negotiation</div>
+                            <div class="title-meta">Hyundai, investor from 2016 · Fleet manager, then product manager</div>
+                        </div>
+                        <div class="column-section">
+                            <div class="relevance"><span class="relevance-label">Prepare:</span>One honest sentence on how the dealership test went, because they will ask. Don't say keyless launched fleet-wide. Don't mention Ampol.</div>
+                        </div>
+                        <div class="column-section">
+                            <span class="star-label">Setup</span>
+                            <div class="star-content">Three parties. Hyundai head office, their franchise dealers, and us. I'd have to run whatever we agreed and build it into the product.</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="column-section">
+                            <span class="star-label">What to say</span>
+                            <div class="star-content">
+                                <ul>
+                                    <li>Hyundai wanted keyless entry through our app for Hyundai cars, and our platform as a long test drive for buyers.</li>
+                                    <li>Dealers liked anything that sold cars, but didn't want extra process or stolen stock.</li>
+                                    <li>My position: a keyless feature for one brand isn't a marketplace feature. It's a custom build we didn't have engineers for.</li>
+                                    <li>I separated the two asks. We'd run the dealership test on the product as it was, with no dealer-only flow. Any keyless entry had to work in any car.</li>
+                                    <li>That gave them a real test without tying our roadmap to one brand.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <details class="full-script">
+                            <summary>Full script</summary>
+                            <div class="star-content">
+<p>Hyundai invested in Car Next Door in 2016, and over the next few years we tried to turn that into practical work together. I was involved first as fleet manager and then as product manager, which made me the person who'd have to run whatever we agreed and build it into the product.</p>
+<p>There were really three parties. Hyundai head office wanted keyless entry through our app for Hyundai cars. They also wanted people thinking about buying a Hyundai to use our platform as a long test drive. Their dealers, who are franchisees rather than Hyundai itself, liked anything that might sell cars, but didn't want extra process or stolen stock. And we needed anything we built to work across a fleet that was mostly not Hyundai.</p>
+<p>My position was simple. A keyless feature that works for one brand isn't a marketplace feature. It's a custom build for one partner, and we didn't have the engineers for it. So I separated the two asks. We agreed to run the dealership test with them, using the product as it was, with no dealer-only flow. And any keyless entry we built had to work in any car, not just a Hyundai.</p>
+<p>That gave Hyundai and the dealers a real test without tying our roadmap to one brand.</p>
+<p>[Prepare one honest sentence on how the dealership test went, because they will ask. If you don't know, say the partnership moved on and you weren't close to the result.]</p>
+                            </div>
+                        </details>
+                    </td>
+                </tr>
+                <tr id="everlab-5">
+                    <td class="example-number">5</td>
+                    <td>
+                        <div class="column-section">
+                            <div class="title-info">An operational change that persisted</div>
+                            <div class="title-meta">Key Swap after launch · Left product in September 2021</div>
+                        </div>
+                        <div class="column-section">
+                            <div class="relevance"><span class="relevance-label">If you told story 1:</span>Open with "Coming back to Key Swap…" and skip the setup.</div>
+                        </div>
+                        <div class="column-section">
+                            <span class="star-label">Setup</span>
+                            <div class="star-content">The launch was the easy part. Signups were up, but utilisation was down, owners earned less, support calls rose, and borrowers felt the friction. There was real internal doubt.</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="column-section">
+                            <span class="star-label">What to say</span>
+                            <div class="star-content">
+                                <ul>
+                                    <li>We kept the model and changed the operation so it didn't rely on anyone pushing it.</li>
+                                    <li>We took off owners who weren't earning, encouraged lockboxes where they cut friction, and built self-install kits. The kits made the biggest difference.</li>
+                                    <li>In strategy and ops I owned the delisting policy. It turned "take weak owners off" from an occasional clean-up into a standing rule with criteria.</li>
+                                    <li>Evidence: when Uber acquired the business the following year, 60% of 10,000 cars were on Key Swap. That was well after I'd stopped owning it.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <details class="full-script">
+                            <summary>Full script</summary>
+                            <div class="star-content">
+<p>Coming back to Key Swap. The launch was the easy part. The early numbers were uncomfortable. Signups were up, but utilisation was down, owners were earning less than they expected, support calls rose, and borrowers felt the extra effort of meeting someone to get a key. Inside the company there was real doubt about whether we'd made a mistake.</p>
+<p>We kept the model and changed the operation around it, so it wasn't relying on me or anyone else pushing it. We tracked which owners were actually earning and took the weak ones off. We encouraged lockboxes where they removed friction without a full installation. And we built self-install kits, so a good owner could move toward Instant Key without a technician visit. The kits made the biggest difference.</p>
+<p>In September 2021 I moved out of product into strategy and operations. One of the things I owned there was a delisting policy. It turned "take weak owners off" from a clean-up we did when someone had time into a standing rule with criteria. That's what I'd point to as the change persisting. It stopped being a project and became how the operation ran.</p>
+<p>The evidence is the fleet mix. When Uber acquired the business the following year, 60% of 10,000 cars were on Key Swap. That's well after launch, and after I'd stopped being the product owner.</p>
+                            </div>
+                        </details>
+                    </td>
+                </tr>
+                <tr id="everlab-6">
+                    <td class="example-number">6</td>
+                    <td>
+                        <div class="column-section">
+                            <div class="title-info">When to automate, and when to use people and process</div>
+                            <div class="title-meta">AFCA complaints, 2023 · Strategy &amp; Operations, Uber Carshare</div>
+                        </div>
+                        <div class="column-section">
+                            <span class="star-label">Setup</span>
+                            <div class="star-content">Insurance cover sold with trips made us a financial product, so we had to meet AFCA's complaints requirements, and we didn't. We were under Uber scrutiny, on a short timeline.</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="column-section">
+                            <span class="star-label">What to say</span>
+                            <div class="star-content">
+                                <ul>
+                                    <li>The obvious answer was to build a complaints system. The real job was deciding what needed software and what needed people.</li>
+                                    <li>Built: a way to complain at every point in a transaction, recording so nothing got lost, and analytics on volumes and response times.</li>
+                                    <li>Not built: escalation to the ombudsman, response standards and judgement calls. Those became policy and frontline training.</li>
+                                    <li>Software there would have taken growth developers and been less reliable than a trained team with clear rules.</li>
+                                    <li>Access has the same question at every step. A missing result might need a lab integration, or it might need a phone call.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <details class="full-script">
+                            <summary>Full script</summary>
+                            <div class="star-content">
+<p>In 2023 we found that, because we sold insurance cover with trips, the business was offering a financial product. That meant we had to meet AFCA's complaints requirements, and we didn't. We were also now part of Uber, so the scrutiny was high and the timeline was short.</p>
+<p>The obvious answer was to build a complaints system. The real job was working out which parts needed software and which needed people. In the product, a customer needed a way to complain at every point in a transaction, and every complaint had to be recorded so nothing could get lost. That had to be built. But the escalation path through to the ombudsman, the response standards and the judgement calls were policy and frontline training, not code. Building software for those would have taken developers we needed for growth, and it would have been less reliable than a trained team with clear rules.</p>
+<p>So we built the capture and the reporting, wrote the policy and escalation path, and trained the frontline. We also added analytics, so we could see volumes and response times without anyone compiling them by hand.</p>
+<p>That's the same question Access has at every step. A missing result might need an integration with the lab, or it might need someone to call them.</p>
+                            </div>
+                        </details>
+                    </td>
+                </tr>
+                <tr id="everlab-7">
+                    <td class="example-number">7</td>
+                    <td>
+                        <div class="column-section">
+                            <div class="title-info">Your background, and the "6+ years"</div>
+                            <div class="title-meta">Be exact. Don't round up.</div>
+                        </div>
+                        <div class="column-section">
+                            <span class="star-label">Setup</span>
+                            <div class="star-content">Fleet manager from 2016. First product manager, April 2018 to September 2021. Strategy and ops through the 2022 acquisition, then 2024 policy, safety and risk lead. Photonik co-founder from 2022, owning the product.</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="column-section">
+                            <span class="star-label">What to say</span>
+                            <div class="star-content">
+                                <ul>
+                                    <li>"I've had the product manager title for three and a half years and owned a product as a founder for four more."</li>
+                                    <li>"The thread through all of it is a journey that depends on people I don't employ."</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <details class="full-script">
+                            <summary>Full script</summary>
+                            <div class="star-content">
+<p>Be exact rather than rounding up.</p>
+<ul><li><strong>Car Next Door, 2016–2024.</strong> Fleet manager from 2016: sales and operations, including launching Brisbane. Product manager from April 2018 to September 2021, the company's first, covering growth and then operations. That's three and a half years. Then strategy and operations through the Uber acquisition in 2022, and in 2024 policy, safety and risk lead at Uber Carshare.</li><li><strong>Photonik, 2022 to now.</strong> I co-founded it and own the product: roadmap, delivery, feedback and releases.</li></ul>
+<p>Line to use: "I've had the product manager title for three and a half years and owned a product as a founder for four more. The thread through all of it is a journey that depends on people I don't employ."</p>
+                            </div>
+                        </details>
+                    </td>
+                </tr>
+                <tr id="everlab-8">
+                    <td class="example-number">8</td>
+                    <td>
+                        <div class="column-section">
+                            <div class="title-info">What you&#x27;re working on now: a two-sided marketplace</div>
+                            <div class="title-meta">Photonik marketplace, Iloilo and Cebu · Trial, 2026</div>
+                        </div>
+                        <div class="column-section">
+                            <div class="relevance"><span class="relevance-label">Be exact:</span>No homeowner has been matched to an installer yet, and there are no installs. Don&#x27;t round 30-plus quote requests into customers.</div>
+                        </div>
+                        <div class="column-section">
+                            <span class="star-label">Setup</span>
+                            <div class="star-content">A marketplace matching homeowners who want solar with local installers. Also works for partner network questions, or as a conversion example.</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="column-section">
+                            <span class="star-label">What to say</span>
+                            <div class="star-content">
+                                <ul>
+                                    <li>Homeowner side is automated end to end, and I&#x27;ve tested it myself. A savings model for solar and batteries, then a quote request.</li>
+                                    <li>Signup for both sides was the hard call: every question adds information and loses people. Changed it several times. Homeowner conversion went from 2% to 10%, with nothing important lost.</li>
+                                    <li>The constraint now is supply. More than 30 quote requests, none yet where our installers cover.</li>
+                                    <li>Three installers approved by hand, from their websites and reviews. A person makes that call for now. Automate the checks once I know which signals predict a good installer.</li>
+                                    <li>The shape of Access: demand first, the answer depends on a partner in the right place, and the product can only promise what the network delivers.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <details class="full-script">
+                            <summary>Full script</summary>
+                            <div class="star-content">
+<p>Use this for "What are you working on now?", for questions about the partner network, or as a second example of conversion work.</p>
+<p>At Photonik we're trialling a marketplace in Iloilo and Cebu, in the Philippines. It matches homeowners who want solar with local installers who can supply it.</p>
+<p>The homeowner side is built and automated end to end, and I've tested the whole flow myself. A homeowner sees a model of what solar and batteries would save them, then asks for a quote. The hardest design question was signup, for homeowners and for installers. Every question we add gets us better information and loses people. I changed both flows several times to find the balance. Homeowner conversion in the Philippines went from 2% to 10%, and we still collect everything we need to quote.</p>
+<p>The constraint now is supply. More than 30 homeowners have asked for a quote, but none yet in the areas our installers cover. So my work at the moment is building the installer network. I've approved three installers so far. Each one I checked by hand, from their website and their customer reviews. At this stage that judgement is better done by a person than automated, and I'll automate the checks once I know which signals actually predict a good installer.</p>
+<p>This is the shape of Access. Demand arrives first, the answer depends on a partner being in the right place, and the product can only promise what the network can deliver.</p>
+<p class="script-note"><strong>Note:</strong> Be exact: no homeowner has been matched to an installer yet, and there are no completed installs. Don't round 30-plus requests into customers. Marketplace numbers aren't on the Photonik metrics page, because the product is still in testing.</p>
+                            </div>
+                        </details>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+
+    <div class="quick-reference">
+        <h2>If they ask, and what to ask them</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+            <div>
+                <h3>Short answers</h3>
+                <ul>
+                    <li><strong>Healthcare.</strong> "I haven't worked in pathology, imaging or clinical delivery. What transfers is the shape of the problem: a journey where most steps belong to partners, measured end to end. I'd expect to spend my first weeks with clinical ops and the partner team learning where it actually breaks."</li>
+                    <li><strong>SQL and reporting.</strong> "I built our reporting in Looker at Car Next Door, and the executive and EV dashboards at Uber Carshare. At Photonik I build reports with AI assistance." Don't claim SQL or dbt unless you write it yourself. SQL is a nice-to-have in the ad, not a requirement.</li>
+                    <li><strong>What happens to Photonik?</strong> [Decide this before the interview, because they will ask. Know whether you'd step back, keep a co-founder role, or something else, and say it in one sentence.]</li>
+                    <li><strong>Why Everlab?</strong> Keep it specific to Access: it's a marketplace problem with higher stakes, and the two numbers they report weekly are the right ones.</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Ask them</h3>
+                <ul>
+                    <li>Where do ordered tests most often fail to complete today: at referral, booking, attendance, or results coming back?</li>
+                    <li>Is time to answer currently held back more by partner turnaround, or by steps inside Everlab?</li>
+                    <li>Who owns the lab and imaging relationships commercially today, and how much of that moves to this role?</li>
+                    <li>How do you measure time from decision to answer today, and how much do you trust that data?</li>
+                    <li>How different is the partner network in New Zealand and the UK? Does Access build one model, or one per market?</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <h2 style="font-size: 22px; margin: 10px 0 20px;">Ofgem examples</h2>
     
     <div class="quick-reference">
         <h2>Quick Reference</h2>

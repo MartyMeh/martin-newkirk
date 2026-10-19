@@ -45,3 +45,8 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
+[[headers]]
+  for = "/Docs/*.md"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
